@@ -11,10 +11,11 @@
 	echo "<br/>";
 	echo "<pre>";
 	$manifestDictionary = GenManifest(
-		'http://1',
-	 	'com.163.yxpiosclient',
+		'http://192.168.1.129/issue//issue%201.0.ipa',
+	 	'com.openthread.issue',
 	 	'1.0 (1.0)',
-	 	'issue');
+	 	'issue',
+	 	'Temp/manifest.plist');
 	var_dump($manifestDictionary);
 
 	echo "</pre>";

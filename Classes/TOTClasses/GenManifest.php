@@ -1,6 +1,16 @@
 <?php
-	function GenManifest($ipaURL,$bundleIdentifier,$bundleVersion,$title)
+
+	require_once(__DIR__.'/../ThirdPartyLib/CFPropertyList/CFPropertyList.php');
+
+	function GenManifest(
+		$ipaURL,
+		$bundleIdentifier,
+		$bundleVersion,
+		$title,
+		$savingPath
+		)
 	{
+		//Generate xml structure
 		$assetsDictionary = array(
 			'kind' => 'software-package', 
 			'url' => $ipaURL,
@@ -22,9 +32,17 @@
 		$innerManifestArray = array($innerManifestDictionary);
 
 		$outerManitetDictionary = array(
-			'items' => $innerManifestDictionary,
+			'items' => $innerManifestArray,
 			);
 
+		//Write to disk
+		$td = new CFPropertyList\CFTypeDetector();  
+		$guessedStructure = $td->toCFType( $outerManitetDictionary );
+		$plist = new CFPropertyList\CFPropertyList();
+		$plist->add( $guessedStructure );
+		$plist->saveXML($savingPath);
+
+		//Return manifest dictionary
 		return $outerManitetDictionary;
 	}
 ?>
