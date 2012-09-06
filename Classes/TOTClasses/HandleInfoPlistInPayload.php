@@ -11,7 +11,7 @@
 		echo("<pre>");
 		if (file_exists($xmlPath))
 		{
-			print("Load xml at path : " . $xmlPath . "\n");
+			print("Load binary plist at path : " . $xmlPath . "\n");
 			$content = file_get_contents($xmlPath);
 			$plist = new CFPropertyList\CFPropertyList();
 			$plist->parse($content);
