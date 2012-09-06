@@ -2,14 +2,19 @@
 	error_reporting( E_ALL );
 	ini_set( 'display_errors', 'on' );
 
-	include 'Classes/TOTClasses/unzip.php';
-	include 'Classes/TOTClasses/HandleInfoPlistInPayload.php';
-	include 'Classes/TOTClasses/CreateDir.php';
+	require_once 'Classes/TOTClasses/unzip.php';
+	require_once 'Classes/TOTClasses/HandleInfoPlistInPayload.php';
+	require_once 'Classes/TOTClasses/CreateDir.php';
+	require_once 'Classes/TOTClasses/GenManifest.php';
 
 	CreateDir("Documents");
 	CreateDir("Temp");
 
-	if (($_FILES["file"]["type"] == "application/octet-stream")//文件格式限制为ipa
+	if (!$_FILES)//$_FILES中没有值，上传失败
+	{
+		echo "Upload failed <br/>";
+	}
+	else if (($_FILES["file"]["type"] == "application/octet-stream")//文件格式限制为ipa
 	&& ($_FILES["file"]["size"] < 1024 * 1024 * 20))//最大上传20M
   	{
 		if ($_FILES["file"]["error"] > 0)//上传失败
@@ -49,7 +54,7 @@
 			print("</pre>");
 		}
 	}
-	else//上传失败
+	else//文件不符合要求
 	{
 		echo "Invalid file";
 	}
