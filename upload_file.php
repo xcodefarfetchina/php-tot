@@ -10,7 +10,7 @@
 
 	require_once 'Classes/TOTClasses/unzip.php';
 	require_once 'Classes/TOTClasses/HandleInfoPlistInPayload.php';
-	require_once 'Classes/TOTClasses/CreateDir.php';
+	require_once 'Classes/TOTClasses/FileSystemHelper.php';
 	require_once 'Classes/TOTClasses/GenManifest.php';
 	require_once 'Classes/TOTClasses/XMLHelper.php';
 
@@ -231,7 +231,7 @@
 			}
 
 			//Remove temp file
-			// DeleteDir("Temp");
+			DeleteDir("Temp");
 		}
 	}
 	main();
