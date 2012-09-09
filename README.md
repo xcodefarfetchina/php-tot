@@ -1,4 +1,4 @@
 php-tot
 =======
 
-Create OTA server using PHP automatically.
+Create OTA server automatically. Powered by php.
