@@ -5,22 +5,55 @@
 	require_once(__DIR__.'/../ThirdPartyLib/CFPropertyList/CFPropertyList.php');
 
 
-	function HandleInfoPlistInPayload($payloadPath)
+	function ArrayFromInfoPlistPath($infoPlistPath)
 	{
-		$xmlPath = $payloadPath . "issue.app/" . "Info.plist";
-		echo("<pre>");
+		$xmlPath = $infoPlistPath;
+		$returnArray = null;
 		if (file_exists($xmlPath))
 		{
-			print("Load binary plist at path : " . $xmlPath . "\n");
 			$content = file_get_contents($xmlPath);
 			$plist = new CFPropertyList\CFPropertyList();
 			$plist->parse($content);
-			var_dump( $plist->toArray() );
+			$plistArray = $plist->toArray();
+
+			// print("<pre>");
+			// var_dump($plistArray);
+			// print("</pre>");
+
+			$returnArray = array();
+			//VersionString
+			if ($plistArray['CFBundleShortVersionString'])
+			{
+				$versionString = 
+					$plistArray['CFBundleShortVersionString'] .
+				 	' (' .
+					$plistArray['CFBundleVersion'] .
+					')';
+			}
+			else
+			{
+				$versionString = $plistArray['CFBundleVersion'];
+			}
+			//Bundle identifier
+			$bundleIdentifier = $plistArray['CFBundleIdentifier'];
+			//Bundle dir
+			$minOSVersion = $plistArray['MinimumOSVersion'];
+			//Bundle display name
+			if ($plistArray['CFBundleDisplayName'])
+			{
+				$bundleDisplayName = $plistArray['CFBundleDisplayName'];
+			}
+			else
+			{
+				$bundleDisplayName = "";
+			}
+
+			$returnArray['Version'] = $versionString;
+			$returnArray['BundleIdentifier'] = $bundleIdentifier;
+			$returnArray['BundleDisplayName'] = $bundleDisplayName;
+			$returnArray['MinOSVersion'] = $minOSVersion;
+
 		}
-		else
-		{
-			print("File doesn't exist at $xmlPath");
-		}
-		echo "</pre>";
+		return $returnArray;
 	}
 ?>

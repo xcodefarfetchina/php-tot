@@ -1,6 +1,6 @@
 <?php
 
-	require_once(__DIR__.'/../ThirdPartyLib/CFPropertyList/CFPropertyList.php');
+require_once("XMLHelper.php");
 
 	function GenManifest(
 		$ipaURL,
@@ -36,12 +36,7 @@
 			);
 
 		//Write to disk
-		$td = new CFPropertyList\CFTypeDetector();  
-		$guessedStructure = $td->toCFType( $outerManitetDictionary );
-		$plist = new CFPropertyList\CFPropertyList();
-		$plist->add( $guessedStructure );
-		$plist->saveXML($savingPath);
-
+		SaveArrayAsXMLToPath($outerManitetDictionary,$savingPath);
 		//Return manifest dictionary
 		return $outerManitetDictionary;
 	}
