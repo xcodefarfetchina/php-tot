@@ -16,4 +16,14 @@
 		$plist->add( $guessedStructure );
 		$plist->saveXML($xmlPath);
 	}
+
+	function XMLStringFromArray($array)
+	{
+		$td = new CFPropertyList\CFTypeDetector();  
+		$guessedStructure = $td->toCFType( $array );
+		$plist = new CFPropertyList\CFPropertyList();
+		$plist->add( $guessedStructure );
+		$content = $plist->toXML();
+		return $content;
+	}
 ?>

@@ -180,16 +180,6 @@
 		MoveFile($appPath . "iTunesArtwork", $dir . "iTunesArtwork.png");
 		$isiTunesArtworkExist = file_exists($appPath . "iTunesArtwork");
 
-		//用$infoArray在$dir中创建manifest.plist
-		$serverPath = ServerPath();
-		GenManifest(
-			$serverPath . $dir . $ipaFileName,
-			$bundleIdentifier,
-			$infoArray["Version"],
-			$infoArray["BundleDisplayName"],
-			$dir . "manifest.plist"
-		);
-
 		//在$dir中创建VersionInfo.plist，储存Title、Version、BetaVersion、ReleaseDate、ChangeLog
 	}
 

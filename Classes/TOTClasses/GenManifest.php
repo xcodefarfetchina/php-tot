@@ -2,12 +2,14 @@
 
 require_once("XMLHelper.php");
 
-	function GenManifest(
+/*
+* return value : array of manifest
+*/
+	function GenManifestArray(
 		$ipaURL,
 		$bundleIdentifier,
 		$bundleVersion,
-		$title,
-		$savingPath
+		$title
 		)
 	{
 		//Generate xml structure
@@ -35,9 +37,53 @@ require_once("XMLHelper.php");
 			'items' => $innerManifestArray,
 			);
 
-		//Write to disk
-		SaveArrayAsXMLToPath($outerManitetDictionary,$savingPath);
 		//Return manifest dictionary
 		return $outerManitetDictionary;
 	}
+
+	function GenManifestXMLString(
+		$ipaURL,
+		$bundleIdentifier,
+		$bundleVersion,
+		$title
+	)
+	{
+		//Generate manifest dictionary
+		$outerManitetDictionary = GenManifestArray(
+			$ipaURL,
+			$bundleIdentifier,
+			$bundleVersion,
+			$title
+		);
+
+		//Write to disk
+		$content = XMLStringFromArray($outerManitetDictionary);
+		return $content;
+	}
+
+/*
+* return value : void
+*/
+	function WriteManifestToDisk(
+		$ipaURL,
+		$bundleIdentifier,
+		$bundleVersion,
+		$title,
+		$savingPath
+		)
+	{
+		//Generate manifest dictionary
+		$outerManitetDictionary = GenManifestArray(
+			$ipaURL,
+			$bundleIdentifier,
+			$bundleVersion,
+			$title
+		);
+
+		//Write to disk
+		SaveArrayAsXMLToPath($outerManitetDictionary,$savingPath);
+
+		return;
+	}
+
 ?>
