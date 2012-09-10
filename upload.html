@@ -1,13 +1,32 @@
-<html>
-	<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Upload ipa</title>
+<style type="text/css">
 
-	<form action="upload_file.php" method="post"
-		enctype="multipart/form-data">
-		<label for="file">Filename:</label>
-		<input type="file" name="file" id="file" /> 
-		<br />
-		<input type="submit" name="submit" value="Submit" />
-	</form>
+body {margin:40; padding:0; font-family:AxelRegular,helvetica,arial,sans-serif; font-size:16px;}
+/*标题Label默认属性*/
+h1 {margin:0; padding:0; font-size:13px;text-align:center;}
+/*普通Label默认属性*/
+p {font-size:13px;}
 
-	</body>
+/*顶部Title*/
+.changeLogInput {width: 400px; height: 200px;}
+</style>
+</head>
+
+<body>
+<form action="upload_file.php" method="post" enctype="multipart/form-data">
+	<label for="file">Choose ipa file:</label>
+	<input type="file" name="file" id="file"/>
+	<br/><br/>
+	<label for="notes">ChangeLog:</label>
+	<br/>
+	<textarea class="changeLogInput" name="notes" id="notes"></textarea>
+	<br />
+	<input type="submit" name="submit" value="Submit" />
+</form>
+
+</body>
+
 </html>

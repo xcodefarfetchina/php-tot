@@ -180,7 +180,15 @@
 		MoveFile($appPath . "iTunesArtwork", $dir . "iTunesArtwork.png");
 		$isiTunesArtworkExist = file_exists($appPath . "iTunesArtwork");
 
-		//在$dir中创建VersionInfo.plist，储存Title、Version、BetaVersion、ReleaseDate、ChangeLog
+		//在$dir中创建VersionInfo.plist
+		//储存如下信息
+		//Title -- $infoArray["BundleDisplayName"]
+		//Bundle Identifier -- $bundleIdentifier
+		//Version -- $infoArray["Version"]
+		//BetaVersion -- $betaVersion
+		//ReleaseDate
+		//ChangeLog
+		
 	}
 
 	function main()
