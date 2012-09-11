@@ -9,7 +9,57 @@
 	require_once 'Classes/TOTClasses/XMLHelper.php';
 	require_once(__DIR__.'/Classes/ThirdPartyLib/CFPropertyList/CFPropertyList.php');
 
-	$xmlPath = "Documents/com.openthread.issue/1/manifest.plist";
-	$content = file_get_contents($xmlPath);
-	echo $content;
+	function main()
+	{
+		//获取get中的identifier和betaversion参数
+		$requestArray = array();
+		foreach ($_GET as $key => $value)
+		{
+			$requestArray[] = $key;
+		}
+		$identifier = $requestArray[0];
+		$identifier = str_replace("_", ".", $identifier);
+		$betaversion = $requestArray[1];
+
+		//identifier不能为空
+		if (!$identifier)
+		{
+			echo "identifier is NULL";
+			return;
+		}
+		//betaversion不能为空
+		if (!$betaversion)
+		{
+			echo "identifier is NULL";
+			return;
+		}
+
+		//存放此版本的文件夹
+		$dirPath = "Documents/" . $identifier . "/" . $betaversion . "/";
+		//获取存放此版本的信息的xml路径
+		$xmlPath = $dirPath . "VersionInfo.plist";
+
+		//从xml中读取出关联数组
+		$versionInfoArray = ArrayFromXMLPath($xmlPath);
+		if (!$versionInfoArray)
+		{
+			echo "Version info is missing!";
+		}
+
+		//用版本信息数组生成manifest.plist的xml字符串
+		$manifestXMLString = GenManifestXMLString(
+			"http://192.168.150.181/php-tot/" . $dirPath . "BetaTest.ipa",
+			$versionInfoArray["BundleIdentifier"],
+			$versionInfoArray["Version"],
+			$versionInfoArray["Title"]
+		);
+		echo $manifestXMLString;
+	}
+
+	main();
+	// $xmlPath = "Documents/com.163.YXPiOSClient/1/manifest.plist";
+	// $content = file_get_contents($xmlPath);
+	// echo $content;
 ?>
+
+

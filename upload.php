@@ -225,8 +225,7 @@
 		$changeLog = $_POST["changelog"];
 		if (!$changeLog || $changeLog === "input change log here")
 		{
-			echo "Forbid commits without change log.<br/>";
-			echo "Please input one.";
+			echo "Change log is required.<br/>";
 			return;
 		}
 
