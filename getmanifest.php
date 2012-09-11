@@ -11,15 +11,18 @@
 
 	function main()
 	{
-		//获取get中的identifier和betaversion参数
+		//获取get整段参数
 		$requestArray = array();
 		foreach ($_GET as $key => $value)
 		{
 			$requestArray[] = $key;
 		}
-		$identifier = $requestArray[0];
+		$getStr = $requestArray[0];
+		//由于安装时过来的url中不能带"?" "&"和"#"三种符号，identifier和betaversion用@做分隔符
+		$splitArray = explode("@", $getStr);
+		$identifier = $splitArray[0];
 		$identifier = str_replace("_", ".", $identifier);
-		$betaversion = $requestArray[1];
+		$betaversion = $splitArray[1];
 
 		//identifier不能为空
 		if (!$identifier)
@@ -48,7 +51,7 @@
 
 		//用版本信息数组生成manifest.plist的xml字符串
 		$manifestXMLString = GenManifestXMLString(
-			"http://192.168.150.181/php-tot/" . $dirPath . "BetaTest.ipa",
+			"http://192.168.0.4/php-tot/" . $dirPath . "BetaTest.ipa",
 			$versionInfoArray["BundleIdentifier"],
 			$versionInfoArray["Version"],
 			$versionInfoArray["Title"]
@@ -56,10 +59,9 @@
 		echo $manifestXMLString;
 	}
 
+	$downloadFileName = "manifest.plist";
+	header("Content-Disposition: attachment; filename=$downloadFileName");
 	main();
-	// $xmlPath = "Documents/com.163.YXPiOSClient/1/manifest.plist";
-	// $content = file_get_contents($xmlPath);
-	// echo $content;
 ?>
 
 
