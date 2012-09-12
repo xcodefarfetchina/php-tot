@@ -20,8 +20,6 @@
 				$finalRootURL .= "/";
 			}
 		}
-
-		var_dump($host);
-		var_dump($finalRootURL);
+		return $finalRootURL;
 	}
 ?>
