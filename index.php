@@ -43,7 +43,7 @@ p {font-size:13px;}
 /*内部装载三个label的view*/
 .labelInnerContentView {padding-top: 30px; width: 201px; height: 27px; margin: 0 auto}
 /*cell中title、版本号的Label*/
-.cellTitleLabel {padding-left: 0px; overflow: hidden; width: 201px; height: 21px; padding-top: 31px; font-size: 16px; font-family:AxelBold; color:#333333; margin-top: -62px}
+.cellTitleLabel {padding-left: 0px; overflow: hidden; width: 201px; height: 21px; padding-top: 35px; font-size: 16px; font-family:AxelBold; color:#333333; margin-top: -62px}
 /*cell中发布号、介绍的Label*/
 .cellVersionLabel {padding-left: 0px; overflow: hidden; width: 201px; height: 21px; padding-top: 0px; font-size: 16px; font-family:AxelBold; color:#333333; margin-top: -17px}
 /*标记时间的label*/
@@ -65,27 +65,42 @@ p {font-size:13px;}
 
 <?php
 	require 'Classes/TOTClasses/GetVersionList.php';
+	require 'Classes/TOTClasses/GetRootURL.php';
 	$versionArray = allList();
 	$error = $versionArray['error'];
 	if ($error === "OK")
 	{
+		$serverRootURL = getRootURL();
 		foreach ($versionArray["VersionInfo"] as $key => $value)
 		{
 			//从数组中读取所需信息
+			//标题
 			$title = $value['Title'];
+			//版本号
+			$version = $value['Version'];
+			//内测版本号
 			$betaVersion = $value['BetaVersion'];
-			date_default_timezone_set('PRC'); //中华人民共和国时间
+			//发布日期
+			date_default_timezone_set('PRC');
 			$dateString = date('F d, Y', $value['ReleaseDate']);
+			//下载地址
+			$manifestURL = $serverRootURL . "getmanifest.php?" . $value["BundleIdentifier"] . "@" . $value["BetaVersion"];
+			//Icon
+			$imagePath = $value['ImagePath'];
+			if (!$imagePath || $imagePath === "")
+			{
+				$imagePath = "Images/Icon.png";
+			}
 
 			echo "<div class=\"cell\">";
-			echo "<a href=\"itms-services://?action=download-manifest&url=http://192.168.0.4/php-tot/getmanifest.php?com.openthread.issue@1\">";
+			echo "<a href=\"itms-services://?action=download-manifest&url=$manifestURL\">";
 				echo "<div class=\"iconContainer\">";
-					echo "<img class=\"iconImage\" src=\"Images/Icon.png\"/>";
+					echo "<img class=\"iconImage\" src=\"$imagePath\"/>";
 					echo "<img class=\"iconRoundedRectImage\" src=\"Images/RoundedRectAngel.png\"/>";
 				echo "</div>";
 				echo "<div class=\"labelOuterContentView\">";
 					echo "<div class=\"labelInnerContentView\">";
-						echo "<p class=\"cellTitleLabel\">$title</p>";
+						echo "<p class=\"cellTitleLabel\">$title $version</p>";
 						echo "<p class=\"cellVersionLabel\">#$betaVersion</p>";
 						echo "<p class=\"cellDateLabel\">$dateString</p>";
 					echo "</div>";

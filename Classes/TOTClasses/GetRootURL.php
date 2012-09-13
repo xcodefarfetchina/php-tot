@@ -20,6 +20,6 @@
 				$finalRootURL .= "/";
 			}
 		}
-		return $finalRootURL;
+		return "http://" . $finalRootURL;
 	}
 ?>

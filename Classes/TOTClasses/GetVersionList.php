@@ -3,65 +3,12 @@
 	ini_set( 'display_errors', 'on' );
 
 	require 'XMLHelper.php';
-	require 'GetRootURL.php';
-
-	//返回某identifier下全部版本的信息列表
-	function productInfoArrayForIdentifier($identifier)
-	{
-		$rootURL = getRootURL();
-		$infoArray = array();
-		$error = "OK";
-		$dir = "Documents/" . $identifier;
-		if (file_exists($dir))
-		{
-
-			if ($handle = opendir($dir))
-			{
-				while (false !== ($file = readdir($handle)))
-				{
-					if ($file !== "." && $file !== ".." && is_dir($dir ."/" . $file))//如果$file是文件夹
-					{
-						$versionInfoPath = $dir . "/" . $file . "/VersionInfo.plist";
-						if (file_exists($versionInfoPath))
-						{
-							$versionInfoArray = ArrayFromXMLPath($versionInfoPath);
-							$imagePath = $dir . "/" . $file . "/iTunesArtwork.png";
-							if (file_exists($imagePath))
-							{
-								$versionInfoArray["ImagePath"] = $rootURL . $imagePath;
-							}
-							else
-							{
-								$versionInfoArray["ImagePath"] = "";	
-							}
-							$betaversion = $versionInfoArray["BetaVersion"];
-							$infoArray[$betaversion] = $versionInfoArray;
-						}
-					}
-				}
-				closedir($handle);
-			}
-			//按beta version排序
-			sort($infoArray);
-			if (count($infoArray) == 0)
-			{
-				$error = "Bundle identifier has no beta version.";
-			}
-		}
-		else
-		{
-			$error = "Bundle identifier doesn't exist.";
-		}
-		$returnArray = array("VersionInfo" => $infoArray, "error" => $error);
-		return $returnArray;
-	}
 
 	//返回某identifier下beta version最大的版本的信息
 	//若identifier下无beta version则返回null
 	//版本信息中包含此identifier下是否有其他版本（决定是否显示more按钮）
 	function lastVersionInfoForIdentifier($identifier)
 	{
-		$rootURL = getRootURL();
 		$dir = "Documents/" . $identifier . "/";
 		$maxBetaVersion = 0;
 		$maxBetaVersionInfoArray = null;
@@ -82,7 +29,7 @@
 							$versionInfoArray = ArrayFromXMLPath($versionInfoPath);
 							if (file_exists($imagePath))
 							{
-								$versionInfoArray["ImagePath"] = $rootURL . $imagePath;
+								$versionInfoArray["ImagePath"] = $imagePath;
 							}
 							else
 							{
@@ -148,9 +95,59 @@
 		return $returnArray;
 	}
 
+	//返回某identifier下全部版本的信息列表
+	function productInfoArrayForIdentifier($identifier)
+	{
+		$infoArray = array();
+		$error = "OK";
+		$dir = "Documents/" . $identifier;
+		if (file_exists($dir))
+		{
+
+			if ($handle = opendir($dir))
+			{
+				while (false !== ($file = readdir($handle)))
+				{
+					if ($file !== "." && $file !== ".." && is_dir($dir ."/" . $file))//如果$file是文件夹
+					{
+						$versionInfoPath = $dir . "/" . $file . "/VersionInfo.plist";
+						if (file_exists($versionInfoPath))
+						{
+							$versionInfoArray = ArrayFromXMLPath($versionInfoPath);
+							$imagePath = $dir . "/" . $file . "/iTunesArtwork.png";
+							if (file_exists($imagePath))
+							{
+								$versionInfoArray["ImagePath"] = $imagePath;
+							}
+							else
+							{
+								$versionInfoArray["ImagePath"] = "";	
+							}
+							$betaversion = $versionInfoArray["BetaVersion"];
+							$infoArray[$betaversion] = $versionInfoArray;
+						}
+					}
+				}
+				closedir($handle);
+			}
+			//按beta version排序
+			sort($infoArray);
+			if (count($infoArray) == 0)
+			{
+				$error = "Bundle identifier has no beta version.";
+			}
+		}
+		else
+		{
+			$error = "Bundle identifier doesn't exist.";
+		}
+		$returnArray = array("VersionInfo" => $infoArray, "error" => $error);
+		return $returnArray;
+	}
+
+	//指定identifier和betaVersion的版本详情
 	function versionDetailForIdentifierAndBetaVersion($identifier,$betaversion)
 	{
-		$serverRootURL = getRootURL();
 		//枚举Documents下面所有文件夹
 		$documentPath = "Documents/";
 		$versionInfoPath = $documentPath . $identifier . "/" . $betaversion . "/VersionInfo.plist";
@@ -161,7 +158,7 @@
 			$versionInfoArray = ArrayFromXMLPath($versionInfoPath);
 			if (file_exists($imagePath))
 			{
-				$versionInfoArray["ImagePath"] = $serverRootURL . $imagePath;
+				$versionInfoArray["ImagePath"] = $imagePath;
 			}
 			else
 			{

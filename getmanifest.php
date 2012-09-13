@@ -8,6 +8,7 @@
 	require_once 'Classes/TOTClasses/GenManifest.php';
 	require_once 'Classes/TOTClasses/XMLHelper.php';
 	require_once(__DIR__.'/Classes/ThirdPartyLib/CFPropertyList/CFPropertyList.php');
+	require 'Classes/TOTClasses/GetRootURL.php';
 
 	function main()
 	{
@@ -51,7 +52,7 @@
 
 		//用版本信息数组生成manifest.plist的xml字符串
 		$manifestXMLString = GenManifestXMLString(
-			"http://192.168.0.4/php-tot/" . $dirPath . "BetaTest.ipa",
+			getRootURL() . $dirPath . "BetaTest.ipa",
 			$versionInfoArray["BundleIdentifier"],
 			$versionInfoArray["Version"],
 			$versionInfoArray["Title"]
