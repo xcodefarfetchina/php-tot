@@ -63,28 +63,49 @@ p {font-size:13px;}
 	<h1 class="headerTitle">Install Apps</h1>
 </div>
 
-<div class="cell">
-	<a href="itms-services://?action=download-manifest&url=http://192.168.0.4/php-tot/getmanifest.php?com.openthread.issue@1">
-		<div class="iconContainer">
-			<img class="iconImage" src='Images/Icon.png'/>
-			<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>
-		</div>
-		<div class="labelOuterContentView">
-			<div class="labelInnerContentView">
-				<p class="cellTitleLabel">[REPLACE_APP_TITLE]</p>
-				<p class="cellVersionLabel">[REPLACE_APP_VERSION]</p>
-				<p class="cellDateLabel">[REPLACE_APP_UPDATE_TIME]</p>
-			</div>
-		</div>
-		<img class="detailButton" src="Images/DetailButton.png"/>
-	</a>
-</div>
-<div class="moreButton">
-	<a href="http://www.baidu.com"><img width = 65px; height=24px; src="Images/MoreButton.png"/></a>
-</div>
+<?php
+	require 'Classes/TOTClasses/GetVersionList.php';
+	$versionArray = allList();
+	$error = $versionArray['error'];
+	if ($error === "OK")
+	{
+		foreach ($versionArray["VersionInfo"] as $key => $value)
+		{
+			//从数组中读取所需信息
+			$title = $value['Title'];
+			$betaVersion = $value['BetaVersion'];
+			date_default_timezone_set('PRC'); //中华人民共和国时间
+			$dateString = date('F d, Y', $value['ReleaseDate']);
 
-<h1 class="errorLabel">No beta test ipa package available.</h1>
-
+			echo "<div class=\"cell\">";
+			echo "<a href=\"itms-services://?action=download-manifest&url=http://192.168.0.4/php-tot/getmanifest.php?com.openthread.issue@1\">";
+				echo "<div class=\"iconContainer\">";
+					echo "<img class=\"iconImage\" src=\"Images/Icon.png\"/>";
+					echo "<img class=\"iconRoundedRectImage\" src=\"Images/RoundedRectAngel.png\"/>";
+				echo "</div>";
+				echo "<div class=\"labelOuterContentView\">";
+					echo "<div class=\"labelInnerContentView\">";
+						echo "<p class=\"cellTitleLabel\">$title</p>";
+						echo "<p class=\"cellVersionLabel\">#$betaVersion</p>";
+						echo "<p class=\"cellDateLabel\">$dateString</p>";
+					echo "</div>";
+				echo "</div>";
+				echo "<img class=\"detailButton\" src=\"Images/DetailButton.png\"/>";
+			echo "</a>";
+			echo "</div>";
+			if ($value["HasMoreBetaVersion"] === true)
+			{
+				echo "<div class=\"moreButton\">";
+					echo "<a href=\"http://www.baidu.com\"><img width = 65px; height=24px; src=\"Images/MoreButton.png\"/></a>";
+				echo "</div>";
+			}
+		}
+	}
+	else
+	{
+		echo "<h1 class=\"errorLabel\">$error</h1>";
+	}
+?>
 
 </body>
 </html>
