@@ -30,7 +30,7 @@ a:hover {text-decoration:none}
 .headerTitle {padding-top: 11px;font-size:16px; font-family:AxelRegular; color:#252525; text-shadow: 0px 1px 0px #fff;}
 
 /*cell布局*/
-.cell {background:#f3f3f3; height: 89px; border-top:0px solid #fff; border-bottom:1px solid #d3d3d3; margin-top: 0px}
+.cell {background:#f3f3f3; border-top:0px solid #fff; border-bottom:0px solid #d3d3d3; margin-top: 0px}
 .cell a {text-decoration:none; height:89px; font-size:15px; display:block; color:#000;}
 
 /*Icon Container*/
@@ -40,7 +40,7 @@ a:hover {text-decoration:none}
 /*Icon Rounded Rect*/
 .iconRoundedRectImage {margin-left: 0px; margin-top: -57px; width: 57px; height: 57px}
 /*Detail Button*/
-.detailButton {width: 9px; height: 15px; margin-top: -36px; position:absolute;right:10px;}
+.detailButton {width: 15px; height: 9px; margin-top: -32px; position:absolute;right:10px;}
 
 /*外部装载三个label和MoreButton的view*/
 .labelOuterContentView {height: 57px; margin-top: -61px;position: absolute;right: 30px;left: 89px;}
@@ -52,9 +52,24 @@ a:hover {text-decoration:none}
 .cellVersionLabel {padding-left: 0px; overflow: hidden; width: 201px; height: 21px; padding-top: 0px; font-size: 16px; font-family:AxelBold; color:#333333; margin-top: -17px}
 /*标记时间的label*/
 .cellDateLabel {padding-left: 0px; overflow: hidden; width: 165px; height: 21px; font-size: 16px; margin-top: -17px; color: #3668ff}
-/*MoreButtonButton*/
-.moreButton {width: 65px; height: 24px; margin-top: -37px; position: absolute; right: 40px;}
-.moreButton a {width: 65px; height: 24px; padding-top: 16px; padding-left: 10px; padding-right: 10px}
+
+/*自适应高度的div*/
+.dymain {
+    margin:auto;
+    background-color:#f3f3f3;
+}
+.dymain table {
+    margin-left : 0;
+}
+/*ChangeLog*/
+.changeLogTitle {position: absolute; left: 10px; font-family: AxelBold; color: #333333; font-size: 16px}
+.changeLogDetail {position: absolute; left: 15px; right: 15px; font-family: AxelBold; color: #444444; font-size: 16px;}
+
+
+/*installButton*/
+.installButton {position: relative;bottom: 0px; width: 100px; height: 44px; margin: 0 auto; padding-bottom: 10px}
+.installButton a {width: 100px; height: 44px;}
+
 
 .errorLabel {padding-top: 88px;font-size:16px; font-family:AxelRegular; color:#fff;}
 .downloadLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
@@ -66,36 +81,55 @@ a:hover {text-decoration:none}
 
 <!-- 顶部NavigationBar -->
 <div id="header">
-	<h1 class="headerTitle">Install Apps</h1>
+	<h1 class="headerTitle">Install issue</h1>
 </div>
 
 <!-- 以上是Header -->
 
 <div class="cell">
-	<a href="itms-services://?action=download-manifest&url=http://192.168.0.4/php-tot/getmanifest.php?com.openthread.issue@1">
-		<div class="iconContainer">
-			<img class="iconImage" src='Images/Icon.png'/>
-			<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>
+	<div class="iconContainer">
+		<img class="iconImage" src='Images/Icon.png'/>				
+		<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>				
+	</div>
+	<div class="labelOuterContentView">
+		<div class="labelInnerContentView">
+			<p class="cellTitleLabel">issue</p>
+			<p class="cellVersionLabel">1.0</p>
+			<p class="cellDateLabel">September 14, 2012</p>
 		</div>
-		<div class="labelOuterContentView">
-			<div class="labelInnerContentView">
-				<p class="cellTitleLabel">[REPLACE_APP_TITLE]</p>
-				<p class="cellVersionLabel">[REPLACE_APP_VERSION]</p>
-				<p class="cellDateLabel">[REPLACE_APP_UPDATE_TIME]</p>
-			</div>
+	</div>
+	<img class="detailButton" src="Images/DetailButtonHorizontal.png"/>				
+
+	<!-- Change Log -->				
+	<div style="height:21px;">
+		<p class="changeLogTitle">Change Log:</p>
+	</div>
+	<div style="word-break: break-all; word-wrap:break-word;">
+		<div class="dymain">
+			<table>
+				<tr>
+					<td>
+						<p style="font-family: AxelBold; color: #333333; font-size: 16px; padding-left:12px; padding-right:12px; padding-top:3px;">通过Furry你可以得到应用的用户人数，用户活跃度，用户来源等统计信息。但是他最厉害的地方是，你可以追踪应用本身的事件和错误记录，所有这些数据都会在一个类似Google Analytics的界面上显示，这样就很容易掌握用户的行为和出现的问题。</p>
+					</td>
+				</tr>
+			</table>
 		</div>
-		<img class="detailButton" src="Images/DetailButton.png"/>
-	</a>
-</div>
-<div class="moreButton">
-	<a href="http://www.baidu.com"><img width = 65px; height=24px; src="Images/MoreButton.png"/></a>
+	</div>
+
+	<div class="installButton" style="margin-top:7px;">
+		<a href="">
+			<img width = 100px; height=44px; src="Images/InstallButton.png"/>				
+		</a>
+	</div>
+	<div style="height:7px; background:#f3f3f3;">
+	</div>
 </div>
 
-<h1 class="errorLabel">No beta test ipa package available.</h1>
+<!-- <h1 class="errorLabel">No beta test ipa package available.</h1> -->
 
 <!-- 以下是Footer -->
 
-<div style="height:88px;"> 
+<div style="height:44px;"> 
 </div>
 <div style="height:33px;">
 	<a href="http://github.com/openfibers/php-tot">
