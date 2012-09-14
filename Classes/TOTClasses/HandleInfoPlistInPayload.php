@@ -22,7 +22,8 @@
 
 			$returnArray = array();
 			//VersionString
-			if ($plistArray['CFBundleShortVersionString'])
+
+			if (array_key_exists('CFBundleShortVersionString', $plistArray) && ($plistArray['CFBundleShortVersionString']))
 			{
 				$versionString = 
 					$plistArray['CFBundleShortVersionString'] .
