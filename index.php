@@ -25,9 +25,9 @@ a:visited{text-decoration:none}
 a:hover {text-decoration:none}
 
 /*顶部NavigationBar布局*/
-#header {height:38px; background-image:url(Images/HeaderTitle.png);  margin:0 auto;}
+#header {height:44px; background-image:url(Images/HeaderTitle.png);  margin:0 auto;}
 /*顶部Title*/
-.headerTitle {padding-top: 8px;font-size:16px; font-family:AxelRegular; color:#252525; text-shadow: 0px 1px 0px #fff;}
+.headerTitle {padding-top: 11px;font-size:16px; font-family:AxelRegular; color:#252525; text-shadow: 0px 1px 0px #fff;}
 
 /*cell布局*/
 .cell {background:#f3f3f3; height: 89px; border-top:0px solid #fff; border-bottom:1px solid #d3d3d3; margin-top: 0px}
@@ -57,8 +57,8 @@ a:hover {text-decoration:none}
 .moreButton a {width: 65px; height: 24px; padding-top: 16px; padding-left: 10px; padding-right: 10px}
 
 .errorLabel {padding-top: 88px;font-size:16px; font-family:AxelRegular; color:#fff;}
-.downloadLabel {position: absolute; right: 10px; font-size:14px; font-family:AxelRegular; color:#eee;}
-.contractMeLabel {position: absolute; right: 10px; font-size:14px; font-family:AxelRegular; color:#eee;}
+.downloadLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
+.contractMeLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
 
 </style>
 </head>
