@@ -62,7 +62,6 @@
 	//全部identifier的最后一次发布版本列表
 	function allList()
 	{
-		$serverRootURL = getRootURL();
 		//枚举Documents下面所有文件夹
 		$documentPath = "Documents/";
 		$lastVersionArray = array();

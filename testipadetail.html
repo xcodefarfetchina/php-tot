@@ -79,9 +79,9 @@ a:hover {text-decoration:none}
 </head>
 
 <SCRIPT LANGUAGE="JScript">
-function backToPage()
+function backToPage(location)
 {
-    document.location=('testindex.html');
+    document.location=(location);
 }
 </SCRIPT>
 
@@ -93,7 +93,7 @@ function backToPage()
 <div id="header">
 	<h1 class="headerTitle">Install issue</h1>
 	<div style="position:absolute; top:7px; left:4px">
-		<img class=".retinaBackButton" onclick="backToPage()" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
+		<img onclick="backToPage('testindex.html')" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
 	</div>
 </div>
 
@@ -128,8 +128,9 @@ function backToPage()
 		</div>
 	</div>
 
+	<!-- 安装按钮 -->
 	<div class="installButton" style="margin-top:7px;">
-		<a href="">
+		<a href="itms-services://?action=download-manifest&url=http://localhost/php-tot/getmanifest.php?com.openthread.issue@1">
 			<img width = 100px; height=44px; src="Images/InstallButton.png"/>				
 		</a>
 	</div>
@@ -137,7 +138,8 @@ function backToPage()
 	</div>
 </div>
 
-<!-- <h1 class="errorLabel">No beta test ipa package available.</h1> -->
+<!-- 错误提示 -->
+<h1 class="errorLabel">No beta test ipa package available.</h1>
 
 <!-- 以下是Footer -->
 
