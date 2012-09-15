@@ -62,17 +62,26 @@ a:hover {text-decoration:none}
 
 </style>
 </head>
+
+<SCRIPT LANGUAGE="JScript">
+function toDetail(bundleIdentifier,betaVersion)
+{
+	var location = 'ipaapi.php?identifier=' + bundleIdentifier +'&betaversion=' + betaVersion;
+    document.location=(location);
+}
+</SCRIPT>
+
 <body>
+
+<!-- 以上是Header -->
 
 <!-- 顶部NavigationBar -->
 <div id="header">
 	<h1 class="headerTitle">Install Apps</h1>
 </div>
 
-<!-- 以上是Header -->
 
-<div class="cell">
-	<a href="itms-services://?action=download-manifest&url=http://192.168.0.4/php-tot/getmanifest.php?com.openthread.issue@1">
+<div class="cell" onclick="toDetail('com.openthread.issue','1')">
 		<div class="iconContainer">
 			<img class="iconImage" src='Images/Icon.png'/>
 			<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>
@@ -85,7 +94,6 @@ a:hover {text-decoration:none}
 			</div>
 		</div>
 		<img class="detailButton" src="Images/DetailButton.png"/>
-	</a>
 </div>
 <div class="moreButton">
 	<a href="http://www.baidu.com"><img width = 65px; height=24px; src="Images/MoreButton.png"/></a>
