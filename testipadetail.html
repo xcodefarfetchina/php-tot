@@ -75,32 +75,28 @@ a:hover {text-decoration:none}
 .downloadLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
 .contractMeLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
 
-/*.retinaBackButton {
-    background-image: url(Images/GrayBackButton.png);
-    -webkit-background-size: 32px 16px;
-}
-
-@media all and (-webkit-min-device-pixel-ratio:2) {
-    .retinaBackButton {
-        background-image: url(Images/GrayBackButtonHD.png);
-    }
-}*/
-
 </style>
 </head>
+
+<SCRIPT LANGUAGE="JScript">
+function backToPage()
+{
+    document.location=('testindex.html');
+}
+</SCRIPT>
+
+<!-- 以上是Header -->
+
 <body>
 
 <!-- 顶部NavigationBar -->
 <div id="header">
 	<h1 class="headerTitle">Install issue</h1>
 	<div style="position:absolute; top:7px; left:4px">
-		<a href="">
-			<img class=".retinaBackButton" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
-		</a>
+		<img class=".retinaBackButton" onclick="backToPage()" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
 	</div>
 </div>
 
-<!-- 以上是Header -->
 
 <div class="cell">
 	<div class="iconContainer">
