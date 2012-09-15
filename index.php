@@ -62,6 +62,14 @@ a:hover {text-decoration:none}
 
 </style>
 </head>
+
+<SCRIPT LANGUAGE="JScript">
+function openPage(location)
+{
+    document.location=(location);
+}
+</SCRIPT>
+
 <body>
 
 <!-- 顶部NavigationBar -->
@@ -78,7 +86,6 @@ a:hover {text-decoration:none}
 	$error = $versionArray['error'];
 	if ($error === "OK")
 	{
-		$serverRootURL = getRootURL();
 		foreach ($versionArray["VersionInfo"] as $key => $value)
 		{
 			//从数组中读取所需信息
@@ -91,17 +98,19 @@ a:hover {text-decoration:none}
 			//发布日期
 			date_default_timezone_set('PRC');
 			$dateString = date('F d, Y', $value['ReleaseDate']);
-			//下载地址
-			$manifestURL = $serverRootURL . "getmanifest.php?" . $value["BundleIdentifier"] . "@" . $value["BetaVersion"];
 			//Icon
 			$imagePath = $value['ImagePath'];
 			if (!$imagePath || $imagePath === "")
 			{
 				$imagePath = "Images/Icon.png";
 			}
+			//ipa详情页
+			$detailURL =
+			 "ipadetail.php?identifier=" . $value["BundleIdentifier"] . 
+			 "&betaversion=" . $value["BetaVersion"] .
+			 "&backuri=" . "index.php";
 
-			echo "<div class=\"cell\">";
-			echo "<a href=\"itms-services://?action=download-manifest&url=$manifestURL\">";
+			echo "<div class=\"cell\" onclick=\"openPage('$detailURL')\" >";
 				echo "<div class=\"iconContainer\">";
 					echo "<img class=\"iconImage\" src=\"$imagePath\"/>";
 					echo "<img class=\"iconRoundedRectImage\" src=\"Images/RoundedRectAngel.png\"/>";
@@ -114,7 +123,6 @@ a:hover {text-decoration:none}
 					echo "</div>";
 				echo "</div>";
 				echo "<img class=\"detailButton\" src=\"Images/DetailButton.png\"/>";
-			echo "</a>";
 			echo "</div>";
 			if ($value["HasMoreBetaVersion"] === true)
 			{
