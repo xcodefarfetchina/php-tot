@@ -27,7 +27,7 @@ a:hover {text-decoration:none}
 /*顶部NavigationBar布局*/
 #header {height:44px; background-image:url(Images/HeaderTitle.png);  margin:0 auto;}
 /*顶部Title*/
-.headerTitle {padding-top: 11px;font-size:16px; font-family:AxelRegular; color:#252525; text-shadow: 0px 1px 0px #fff;}
+.headerTitle {padding-top: 11px;font-size:16px;margin: 0 auto; overflow: hidden; width: 196px; font-family:AxelRegular; color:#252525; text-shadow: 0px 1px 0px #fff;}
 
 /*cell布局*/
 .cell {background:#f3f3f3; height: 89px; border-top:0px solid #fff; border-bottom:1px solid #d3d3d3; margin-top: 0px}
@@ -150,7 +150,7 @@ function openPage(location)
 <div style="height:33px;"> 
 	<a href="mailto:openfibers@gmail.com">
 		<div>
-		<h1 class="contractMeLabel">Mail to Author</h1>
+		<h1 class="contractMeLabel">Contact Author</h1>
 		</div>
 	</a>
 </div>
