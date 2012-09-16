@@ -32,14 +32,17 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 3.Download php-tot from github. Copy php-tot folder to your PHP server. For example, I'm using a MAC, Apache server's documents path is '/Library/WebServer/Documents'. I copy php-tot to '/Library/WebServer/Documents'
 
 ##Upload ipa packages
-1.Open TOT server's URL in your MAC's browser. For example, mine PHP server's address is 192.168.88.88, so I opened 'http://192.168.88.88/php-tot/upload' in Chrome. You may upload php-tot to a server which has a domain.  
+1.Open TOT server's URL in your MAC's browser. For example, mine PHP server's address is 192.168.1.103, so I opened 'http://192.168.1.103/php-tot/upload' in Chrome. You may upload php-tot to a server which has a domain.  
   
 2.Open 'Choose File', then choose an illegal beta test ipa. Type some change log of this version, then click 'Submit';
 
 ##Installation on mobiles
-1.Open 'http://192.168.88.88/php-tot' in your mobile Safari. You can add this page to iOS device's home screen.
-  
-2.Choose a product, then the detail page of this product shows. Touch "Install" button. Then the installation will begin. Very convenient, isn't it?
+1.Open 'http://192.168.1.103/php-tot' in your mobile Safari. You can add this page to iOS device's home screen. It looks like this:  
+![TOT server list](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot1.png?raw=true "Choose ipa from TOT server")
+
+2.Choose a product, then the detail page of this product shows. Touch "Install" button. Then the installation will begin. Very convenient, isn't it?  
+![TOT server ipa detail](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot2.png?raw=true "Ipa detail from TOT server")
+![TOT server installation](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot3.png?raw=true "Install ipa from TOT server")
 
 #Todo
 1.User interface to let developers delete uploaded ipa.  
