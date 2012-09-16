@@ -87,7 +87,7 @@
 				closedir($handle);
 			}
 		}
-		sort($lastVersionArray,SORT_NUMERIC);
+		rsort($lastVersionArray);
 		if (count($lastVersionArray) == 0)
 		{
 			$error = "No beta test ipa package available.";
@@ -136,7 +136,7 @@
 				closedir($handle);
 			}
 			//按beta version排序
-			sort($infoArray);
+			rsort($infoArray);
 			if (count($infoArray) == 0)
 			{
 				$error = "Bundle identifier has no beta version.";
