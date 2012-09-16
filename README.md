@@ -11,7 +11,7 @@ It is created by php and uses apple OTA technology.
 
 ##Then what's OTA?
 
-OTA stands for over-the-air. With this technology, you can install beta test ipa packages to iOS devices via wifi, and USB cable is not required any more.
+OTA stands for over-the-air. With this technology, you can install beta test ipa packages to iOS devices via wifi, and USB cable is not required any more. It wirelessly improve ad-hoc distribution.
 
 ##Why TOT?
 There are several ways to achieve OTA installation. However, TOT is the most convenient way to build a OTA server, and the most convenient way to release beta test ipa package.   
@@ -48,7 +48,9 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 1.User interface to let developers delete uploaded ipa.  
 2.Upload and delete permission control.  
   
-
+#Other choice
+1.<http://testflightapp.com/>  
+2.<http://www.hanchorllc.com/betabuilder-for-ios//>  
 #简体中文 盒装正版 介绍
 
 ##什么是TOT?
@@ -96,3 +98,7 @@ OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发�
 #Todo
 1.增加删除已上传测试包的UI。  
 2.增加上传和删除的权限管理。  
+  
+#其他OTA选择
+1.<http://testflightapp.com/>  
+2.<http://www.hanchorllc.com/betabuilder-for-ios//>  
