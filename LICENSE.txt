@@ -8,3 +8,8 @@ Redistributions in binary form must reproduce the above copyright notice, this l
 Neither the name of Open Fibers nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+再分发源代码或使用二进制形式再分发php-tot，修改或不做修改，都需满足下列条件：  
+再分发源代码时必须保留上述版权声明，此条件列表和以下免责声明。  
+以二进制形式进行再分发必须复制上述版权声明，此条件列表和下面的免责声明中的文档和/或其他材料的分布。  
+"Open Fibers"的名称，和php-tot的贡献者的名字，都不可用于认可或推广未经事先书面许可，由本软件衍生的产品。  
+本软件是由版权所有者和贡献者提供，但并不提供任何明示或暗示的担保，包括但不限于针对特定用途的适销性和适用性的暗示担保担保。在任何情况下，著作权人都不承担任何直接的，间接的，附带的，特殊的，惩罚性的或后果性的损失。无论起因是任何理论责任。
