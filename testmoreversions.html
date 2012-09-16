@@ -25,6 +25,10 @@ function toDetail(bundleIdentifier,betaVersion)
 	location = 'testipadetail.html';
     document.location=(location);
 }
+function backToPage(location)
+{
+    document.location=(location);
+}
 </SCRIPT>
 
 <body>
@@ -33,7 +37,10 @@ function toDetail(bundleIdentifier,betaVersion)
 
 <!-- 顶部NavigationBar -->
 <div class="navigationBar">
-	<h1 class="headerTitle">Install Apps</h1>
+	<h1 class="headerTitle">com.openthread.issue11111111111111111111111</h1>
+	<div style="position:absolute; top:7px; left:4px">
+		<img onclick="backToPage('testindex.html')" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
+	</div>
 </div>
 
 
@@ -50,9 +57,6 @@ function toDetail(bundleIdentifier,betaVersion)
 			</div>
 		</div>
 		<img class="detailButton" src="Images/DetailButton.png"/>
-</div>
-<div class="moreButton">
-	<a href="http://www.baidu.com"><img width = 65px; height=24px; src="Images/MoreButton.png"/></a>
 </div>
 
 <h1 class="errorLabel">No beta test ipa package available.</h1>
