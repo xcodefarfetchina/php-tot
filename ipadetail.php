@@ -133,7 +133,7 @@ function backToPage(location)
 			$bodyHTMLString .= "</div>";
 
 			//表示详细信息的小三角
-			$bodyHTMLString .= "<img class=\"detailButton\" src=\"Images/DetailButtonHorizontal.png\"/>";		
+			$bodyHTMLString .= "<img class=\"horizontalDetailButton\" src=\"Images/DetailButtonHorizontal.png\"/>";		
 
 			//Change Log
 			$bodyHTMLString .= "<div style=\"height:21px;\">";
