@@ -9,11 +9,9 @@
 	require_once 'Classes/TOTClasses/GetRootURL.php';
 	require_once(__DIR__.'/Classes/ThirdPartyLib/CFPropertyList/CFPropertyList.php');
 
-	echo "<br/>";
+
+	// echo json_encode($_SERVER);
 	echo "<pre>";
-
-	getRootURL();
-	// var_dump($_SERVER);
-
+	var_dump($_SERVER);
 	echo "</pre>";
 ?>
