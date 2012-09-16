@@ -19,13 +19,7 @@
 </head>
 
 <SCRIPT LANGUAGE="JScript">
-function toDetail(bundleIdentifier,betaVersion)
-{
-	var location = 'ipaapi.php?identifier=' + bundleIdentifier +'&betaversion=' + betaVersion;
-	location = 'testipadetail.html';
-    document.location=(location);
-}
-function backToPage(location)
+function openPage(location)
 {
     document.location=(location);
 }
@@ -35,31 +29,112 @@ function backToPage(location)
 
 <!-- 以上是Header -->
 
-<!-- 顶部NavigationBar -->
-<div class="navigationBar">
-	<h1 class="headerTitle">com.openthread.issue11111111111111111111111</h1>
-	<div style="position:absolute; top:7px; left:4px">
-		<img onclick="backToPage('index.php')" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
-	</div>
-</div>
+<?php
+	require 'Classes/TOTClasses/GetVersionList.php';
+	require 'Classes/TOTClasses/GetRootURL.php';
 
+	function titleHTMLStringWithAppTitle($title,$backURI)
+	{
+		$titleLabelString = "";
+		if (!$title || $title === "")
+		{
+			$titleLabelString = "Error";
+		}
+		else
+		{
+			$titleLabelString = $title;
+		}
+		if (!$backURI || $backURI === "")
+		{
+			$backURI = "index.php";
+		}
+		$titleString = "";
+		$titleString .= "<div class=\"navigationBar\">";
+		$titleString .= "<h1 class=\"headerTitle\">$titleLabelString</h1>";
+		$titleString .= "<div style=\"position:absolute; top:7px; left:4px\">";
+		$titleString .= "<img onclick=\"openPage('$backURI')\" width=50px; height=30px; src=\"Images/GrayBackButtonHD.png\"/>";
+		$titleString .= "</div>";
+		$titleString .= "</div>";
+		return $titleString;
+	}
 
-<div class="cell" onclick="toDetail('com.openthread.issue','1')">
-		<div class="iconContainer">
-			<img class="iconImage" src='Images/Icon.png'/>
-			<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>
-		</div>
-		<div class="labelOuterContentView">
-			<div class="labelInnerContentView">
-				<p class="cellTitleLabel">[REPLACE_APP_TITLE]</p>
-				<p class="cellVersionLabel">[REPLACE_APP_VERSION]</p>
-				<p class="cellDateLabel">[REPLACE_APP_UPDATE_TIME]</p>
-			</div>
-		</div>
-		<img class="detailButton" src="Images/DetailButton.png"/>
-</div>
+	function errorHTMLStringWithError($error)
+	{
+		$errorString = "<h1 class=\"errorLabel\">" . $error . "</h1>";
+		return $errorString;
+	}
 
-<h1 class="errorLabel">No beta test ipa package available.</h1>
+	$identifier = null;
+	if (array_key_exists("identifier", $_GET))
+	{
+		$identifier = $_GET["identifier"];
+	}
+
+	$titleHTMLString = "";
+	$bodyHTMLString = "";
+	$errorHTMLString = "";
+	if (!$identifier)
+	{
+		$titleHTMLString .= titleHTMLStringWithAppTitle("Error",'index.php');
+		$errorHTMLString .= errorHTMLStringWithError("identifier is required");
+	}
+	else
+	{
+		$versionInfo = productInfoArrayForIdentifier($identifier);
+		$error = $versionInfo['error'];
+		if ($error === "OK")//成功
+		{
+			$titleHTMLString .= titleHTMLStringWithAppTitle($identifier,'index.php');
+			foreach ($versionInfo['VersionInfo'] as $key => $value)
+			{
+				//从数组中读取所需信息
+				//标题
+				$title = $value['Title'];
+				//版本号
+				$version = $value['Version'];
+				//内测版本号
+				$betaVersion = $value['BetaVersion'];
+				//发布日期
+				date_default_timezone_set('PRC');
+				$dateString = date('F d, Y', $value['ReleaseDate']);
+				//Icon
+				$imagePath = $value['ImagePath'];
+				if (!$imagePath || $imagePath === "")
+				{
+					$imagePath = "Images/Icon.png";
+				}
+				//ipa详情页
+				$detailURL =
+				 "ipadetail.php?identifier=" . $value["BundleIdentifier"] . 
+				 "&betaversion=" . $value["BetaVersion"] .
+				 "&backuri=" . "moreversions.php?identifier=" . $identifier;
+
+				$bodyHTMLString .= "<div class=\"cell\" onclick=\"openPage('$detailURL')\">";
+				$bodyHTMLString .= "<div class=\"iconContainer\">";
+				$bodyHTMLString .= "<img class=\"iconImage\" src=\"$imagePath\"/>";
+				$bodyHTMLString .= "<img class=\"iconRoundedRectImage\" src=\"Images/RoundedRectAngel.png\"/>";
+				$bodyHTMLString .= "</div>";
+				$bodyHTMLString .= "<div class=\"labelOuterContentView\">";
+				$bodyHTMLString .= "<div class=\"labelInnerContentView\">";
+				$bodyHTMLString .= "<p class=\"cellTitleLabel\">$title $version</p>";
+				$bodyHTMLString .= "<p class=\"cellVersionLabel\">#$betaVersion</p>";
+				$bodyHTMLString .= "<p class=\"cellDateLabel\">$dateString</p>";
+				$bodyHTMLString .= "</div>";
+				$bodyHTMLString .= "</div>";
+				$bodyHTMLString .= "<img class=\"detailButton\" src=\"Images/DetailButton.png\"/>";
+				$bodyHTMLString .= "</div>";
+			}
+		}
+		else//失败
+		{
+			$titleHTMLString .= titleHTMLStringWithAppTitle("Error",'index.php');
+			$errorHTMLString .= errorHTMLStringWithError($error);
+		}
+	}
+	echo $titleHTMLString;
+	echo $bodyHTMLString;
+	echo $errorHTMLString;
+?>
 
 <!-- 以下是Footer -->
 
