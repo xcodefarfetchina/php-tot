@@ -31,6 +31,11 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 
 3.Download php-tot from github. Copy php-tot folder to your PHP server. For example, I'm using a MAC, Apache server's documents path is '/Library/WebServer/Documents'. I copy php-tot to '/Library/WebServer/Documents'
 
+4.Change file permission for php-tot.  
+  For example, in my mac, Apache server's user is _www, _www's group is wheel. php-tot be copied to '/Library/WebServer/Documents'. Open Terminal and type these commands.  
+    cd /Library/WebServer/Documents  
+    sudo chown _www:wheel php-tot  
+
 ##Upload ipa packages
 1.Open TOT server's URL in your MAC/PC's browser. For example, mine PHP server's address is 192.168.1.103, so I opened 'http://192.168.1.103/php-tot/upload' in Chrome. You may upload php-tot to a server which has a domain.  
   
@@ -90,7 +95,12 @@ All rights reserved.
 
 2.检查服务器的上传设置。如果你也用Apache的话，打开php.ini，检查'upload_max_filesize'和'post_max_size'两个值的设置。我把这两个值都设置成了200M，所以我可以向我的TOT server上传200M以内的ipa。  
 
-3.下载php-tot从github。把php-tot文件夹复制到你的PHP服务器。我的MAC中Apache服务器的文件路径是'/Library/WebServer/Documents'，所以我把php-tot复制到了'/Library/WebServer/Documents'下面。
+3.下载php-tot从github。把php-tot文件夹复制到你的PHP服务器。我的MAC中Apache服务器的文件路径是'/Library/WebServer/Documents'，所以我把php-tot复制到了'/Library/WebServer/Documents'下面。  
+  
+4.更改php-tot的文件权限  
+  举例说明：在我的MAC中，Apache服务器的用户是_www， _www所属用户组是wheel。php-tot已被复制到'/Library/WebServer/Documents'。打开命令行，敲下以下命令  
+    cd /Library/WebServer/Documents  
+    sudo chown _www:wheel php-tot  
 
 ##上传ipa安装包
 1.在你MAC/PC的浏览器中打开TOT server的URL。 我的Apache的地址是192.168.1.103，所以我在Chrome中打开'http://192.168.1.103/php-tot/upload'。你也可以准备一台带域名的服务器。  
