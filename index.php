@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="stylesheet" type="text/css" href="Resources/axelfamilyfont.css"/>
+<link rel="stylesheet" type="text/css" href="Resources/generalstyle.css"/>
 <link rel="apple-touch-icon-precomposed" href="Images/Icon.png"/>
 <link rel="shortcut icon" href="Images/Icon.png" >
 <link href="Images/Default.jpg" media="(device-width: 320px)" rel="apple-touch-startup-image">
@@ -12,55 +13,6 @@
 <link href="Images/DefaultIpadLandscape.jpg" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
 <link href="Images/DefaultIpadLandscape@2x.jpg" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 <title>TOT</title>
-<style type="text/css">
-/*背景*/
-body {background:#283b4c; background-image:url(Images/Background.png); background-repeat:repeat; margin:0; padding:0; font-family:AxelRegular,helvetica,arial,sans-serif; font-size:16px;}
-/*标题Label默认属性*/
-h1 {margin:0; padding:0; font-size:13px;text-align:center; color: #aaa}
-/*普通Label默认属性*/
-p {font-size:13px;}
-
-a:link{text-decoration:none}
-a:visited{text-decoration:none}
-a:hover {text-decoration:none}
-
-/*顶部NavigationBar布局*/
-#header {height:44px; background-image:url(Images/HeaderTitle.png);  margin:0 auto;}
-/*顶部Title*/
-.headerTitle {padding-top: 11px;font-size:16px;margin: 0 auto; overflow: hidden; width: 196px; font-family:AxelRegular; color:#252525; text-shadow: 0px 1px 0px #fff;}
-
-/*cell布局*/
-.cell {background:#f3f3f3; height: 89px; border-top:0px solid #fff; border-bottom:1px solid #d3d3d3; margin-top: 0px}
-.cell a {text-decoration:none; height:89px; font-size:15px; display:block; color:#000;}
-
-/*Icon Container*/
-.iconContainer {padding-left: 16px; padding-top: 16px; width: 57px; height: 57px}
-/*Icon*/
-.iconImage {width: 57px; height: 57px}
-/*Icon Rounded Rect*/
-.iconRoundedRectImage {margin-left: 0px; margin-top: -57px; width: 57px; height: 57px}
-/*Detail Button*/
-.detailButton {width: 9px; height: 15px; margin-top: -36px; position:absolute;right:10px;}
-
-/*外部装载三个label和MoreButton的view*/
-.labelOuterContentView {height: 57px; margin-top: -61px;position: absolute;right: 30px;left: 89px;}
-/*内部装载三个label的view*/
-.labelInnerContentView {padding-top: 30px; width: 201px; height: 27px; margin: 0 auto}
-/*cell中title、版本号的Label*/
-.cellTitleLabel {padding-left: 0px; overflow: hidden; width: 201px; height: 21px; padding-top: 35px; font-size: 16px; font-family:AxelBold; color:#333333; margin-top: -62px}
-/*cell中发布号、介绍的Label*/
-.cellVersionLabel {padding-left: 0px; overflow: hidden; width: 201px; height: 21px; padding-top: 0px; font-size: 16px; font-family:AxelBold; color:#333333; margin-top: -17px}
-/*标记时间的label*/
-.cellDateLabel {padding-left: 0px; overflow: hidden; width: 165px; height: 21px; font-size: 16px; margin-top: -17px; color: #3668ff}
-/*MoreButtonButton*/
-.moreButton {width: 65px; height: 24px; margin-top: -37px; position: absolute; right: 40px;}
-.moreButton a {width: 65px; height: 24px; padding-top: 16px; padding-left: 10px; padding-right: 10px}
-
-.errorLabel {padding-top: 88px;font-size:16px; font-family:AxelRegular; color:#fff;}
-.downloadLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
-.contractMeLabel {/*position: absolute; right: 10px; */font-size:14px; font-family:AxelRegular; color:#eee;}
-
-</style>
 </head>
 
 <SCRIPT LANGUAGE="JScript">
@@ -73,7 +25,7 @@ function openPage(location)
 <body>
 
 <!-- 顶部NavigationBar -->
-<div id="header">
+<div class="navigationBar">
 	<h1 class="headerTitle">Install Apps</h1>
 </div>
 
