@@ -12,79 +12,58 @@
 <link href="Images/DefaultIpadPortrait.jpg" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
 <link href="Images/DefaultIpadLandscape.jpg" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
 <link href="Images/DefaultIpadLandscape@2x.jpg" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-<title>TOT - Version Detail</title>
+<title>TOT - More Version</title>
 <style type="text/css">
-
 
 </style>
 </head>
 
 <SCRIPT LANGUAGE="JScript">
+function toDetail(bundleIdentifier,betaVersion)
+{
+	var location = 'ipaapi.php?identifier=' + bundleIdentifier +'&betaversion=' + betaVersion;
+	location = 'testipadetail.html';
+    document.location=(location);
+}
 function backToPage(location)
 {
     document.location=(location);
 }
 </SCRIPT>
 
-<!-- 以上是Header -->
-
 <body>
+
+<!-- 以上是Header -->
 
 <!-- 顶部NavigationBar -->
 <div class="navigationBar">
-	<h1 class="headerTitle">Install issue</h1>
+	<h1 class="headerTitle">com.openthread.issue11111111111111111111111</h1>
 	<div style="position:absolute; top:7px; left:4px">
-		<img onclick="backToPage('testindex.html')" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
+		<img onclick="backToPage('index.php')" width=50px; height=30px; src="Images/GrayBackButtonHD.png"/>
 	</div>
 </div>
 
 
-<div class="detailCell">
-	<div class="iconContainer">
-		<img class="iconImage" src='Images/Icon.png'/>				
-		<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>				
-	</div>
-	<div class="labelOuterContentView">
-		<div class="labelInnerContentView">
-			<p class="cellTitleLabel">issue</p>
-			<p class="cellVersionLabel">1.0</p>
-			<p class="cellDateLabel">September 14, 2012</p>
+<div class="cell" onclick="toDetail('com.openthread.issue','1')">
+		<div class="iconContainer">
+			<img class="iconImage" src='Images/Icon.png'/>
+			<img class="iconRoundedRectImage" src="Images/RoundedRectAngel.png"/>
 		</div>
-	</div>
-	<img class="horizontalDetailButton" src="Images/DetailButtonHorizontal.png"/>				
-
-	<!-- Change Log -->				
-	<div style="height:21px;">
-		<p class="changeLogTitle">Change Log:</p>
-	</div>
-	<div style="word-break: break-all; word-wrap:break-word;">
-		<div class="dymain">
-			<table>
-				<tr>
-					<td>
-						<p style="font-family: AxelBold; color: #333333; font-size: 16px; padding-left:12px; padding-right:12px; padding-top:3px;">通过Furry你可以得到应用的用户人数，用户活跃度，用户来源等统计信息。但是他最厉害的地方是，你可以追踪应用本身的事件和错误记录，所有这些数据都会在一个类似Google Analytics的界面上显示，这样就很容易掌握用户的行为和出现的问题。</p>
-					</td>
-				</tr>
-			</table>
+		<div class="labelOuterContentView">
+			<div class="labelInnerContentView">
+				<p class="cellTitleLabel">[REPLACE_APP_TITLE]</p>
+				<p class="cellVersionLabel">[REPLACE_APP_VERSION]</p>
+				<p class="cellDateLabel">[REPLACE_APP_UPDATE_TIME]</p>
+			</div>
 		</div>
-	</div>
-
-	<!-- 安装按钮 -->
-	<div class="installButton" style="margin-top:7px;">
-		<a href="itms-services://?action=download-manifest&url=http://localhost/php-tot/getmanifest.php?com.openthread.issue@1">
-			<img width = 100px; height=44px; src="Images/InstallButton.png"/>				
-		</a>
-	</div>
-	<div style="height:7px; background:#f3f3f3;">
-	</div>
+		<img class="detailButton" src="Images/DetailButton.png"/>
 </div>
 
-<!-- 错误提示 -->
 <h1 class="errorLabel">No beta test ipa package available.</h1>
 
 <!-- 以下是Footer -->
 
-<div style="height:44px;"> 
+<div style="height:88px;"> 
 </div>
 <div style="height:33px;">
 	<a href="http://github.com/openfibers/php-tot">
@@ -94,7 +73,7 @@ function backToPage(location)
 <div style="height:33px;"> 
 	<a href="mailto:openfibers@gmail.com">
 		<div>
-		<h1 class="contractMeLabel">Mail to Author</h1>
+		<h1 class="contractMeLabel">Contact Author</h1>
 		</div>
 	</a>
 </div>

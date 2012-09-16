@@ -12,7 +12,7 @@
 <link href="Images/DefaultIpadPortrait.jpg" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
 <link href="Images/DefaultIpadLandscape.jpg" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
 <link href="Images/DefaultIpadLandscape@2x.jpg" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-<title>TOT</title>
+<title>TOT - Version Detail</title>
 </head>
 
 <SCRIPT LANGUAGE="JScript">
