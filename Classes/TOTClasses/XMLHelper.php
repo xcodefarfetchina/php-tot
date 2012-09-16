@@ -1,5 +1,10 @@
 <?php
-
+	
+	/*	
+	Created by Open Fibers
+	25'O Clock Inc.
+	Sep 9 2012
+	 */
 	require_once(__DIR__.'/../ThirdPartyLib/CFPropertyList/CFPropertyList.php');
 
 	function ArrayFromXMLPath($xmlPath)

@@ -1,4 +1,10 @@
 <?php
+	
+	/*	
+	Created by Open Fibers
+	25'O Clock Inc.
+	Sep 9 2012
+	 */
 	error_reporting( E_ALL );
 	ini_set( 'display_errors', 'on' );
 

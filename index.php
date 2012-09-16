@@ -32,6 +32,12 @@ function openPage(location)
 <!-- 以上是Header -->
 
 <?php
+	
+	/*	
+	Created by Open Fibers
+	25'O Clock Inc.
+	Sep 9 2012
+	 */
 	require 'Classes/TOTClasses/GetVersionList.php';
 	require 'Classes/TOTClasses/GetRootURL.php';
 	$versionArray = allList();

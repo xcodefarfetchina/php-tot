@@ -1,7 +1,7 @@
 <?php
 	
 	/*	
-	Created by openthread
+	Created by Open Fibers
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
