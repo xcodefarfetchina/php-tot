@@ -62,7 +62,7 @@ function openPage(location)
 			 "&betaversion=" . $value["BetaVersion"] .
 			 "&backuri=" . "index.php";
 
-			echo "<div class=\"cell\" onclick=\"openPage('$detailURL')\" >";
+			echo "<div class=\"cell\" onclick=\"openPage('$detailURL')\">";
 				echo "<div class=\"iconContainer\">";
 					echo "<img class=\"iconImage\" src=\"$imagePath\"/>";
 					echo "<img class=\"iconRoundedRectImage\" src=\"Images/RoundedRectAngel.png\"/>";
@@ -78,8 +78,9 @@ function openPage(location)
 			echo "</div>";
 			if ($value["HasMoreBetaVersion"] === true)
 			{
-				echo "<div class=\"moreButton\">";
-					echo "<a href=\"http://www.baidu.com\"><img width = 65px; height=24px; src=\"Images/MoreButton.png\"/></a>";
+				$moreVersionURL = "moreversions.php?identifier=" . $value["BundleIdentifier"];
+				echo "<div class=\"moreButton\" onclick=\"openPage('$moreVersionURL')\">";
+					echo "<img width = 65px; height=24px; src=\"Images/MoreButton.png\"/>";
 				echo "</div>";
 			}
 		}
