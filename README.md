@@ -49,13 +49,20 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 ![TOT server ipa detail](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot2.png?raw=true "Ipa detail from TOT server")
 ![TOT server installation](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot3.png?raw=true "Install ipa from TOT server")
 
+#License
+php-tot is published under the [MIT License](http://www.opensource.org/licenses/mit-license.php).  
+  
+php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).  
+[CFPropertyList](https://github.com/rodneyrehm/CFPropertyList) is under The [MIT License](http://www.opensource.org/licenses/mit-license.php).  
+Copyright (c) 2009 Christian Kruse, Rodney Rehm
+
 #Todo
 1.User interface to let developers delete uploaded ipa.  
 2.Upload and delete permission control.  
   
 #Other choice
 1.<http://testflightapp.com/>  
-2.<http://www.hanchorllc.com/betabuilder-for-ios//>  
+2.<http://www.hanchorllc.com/betabuilder-for-ios/>  
 #简体中文 盒装正版 介绍
 
 ##什么是TOT?
@@ -115,10 +122,17 @@ All rights reserved.
 ![TOT server ipa detail](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot2.png?raw=true "Ipa detail from TOT server")
 ![TOT server installation](https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot3.png?raw=true "Install ipa from TOT server")
 
+#License
+php-tot is published under the [MIT License](http://www.opensource.org/licenses/mit-license.php).  
+  
+php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).  
+[CFPropertyList](https://github.com/rodneyrehm/CFPropertyList) is under The [MIT License](http://www.opensource.org/licenses/mit-license.php).  
+Copyright (c) 2009 Christian Kruse, Rodney Rehm
+
 #Todo
 1.增加删除已上传测试包的UI。  
 2.增加上传和删除的权限管理。  
   
 #其他OTA选择
 1.<http://testflightapp.com/>  
-2.<http://www.hanchorllc.com/betabuilder-for-ios//>  
+2.<http://www.hanchorllc.com/betabuilder-for-ios/>  

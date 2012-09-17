@@ -1,0 +1,28 @@
+The MIT License
+
+Copyright (c) 2012 Open Fibers
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+再分发源代码或使用二进制形式再分发php-tot，修改或不做修改，都需满足下列条件：  
+再分发源代码时必须保留上述版权声明，此条件列表和以下免责声明。  
+以二进制形式进行再分发必须复制上述版权声明，此条件列表和下面的免责声明中的文档和/或其他材料的分布。  
+"Open Fibers"的名称，和php-tot的贡献者的名字，都不可用于认可或推广未经事先书面许可，由本软件衍生的产品。  
+本软件是由版权所有者和贡献者提供，但并不提供任何明示或暗示的担保，包括但不限于针对特定用途的适销性和适用性的暗示担保担保。在任何情况下，著作权人都不承担任何直接的，间接的，附带的，特殊的，惩罚性的或后果性的损失。无论起因是任何理论责任。
