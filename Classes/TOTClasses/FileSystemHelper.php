@@ -5,19 +5,23 @@
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
+	//如果文件已存在，返回false
+	//如果创建失败，返回false
+	//如果创建成功，返回true
 	function CreateDir($creatingPath)
 	{
 		if (!file_exists($creatingPath))
 		{
 			if (mkdir($creatingPath))
 			{
-				echo "创建\"" . $creatingPath . "\"成功<br />";
+				return true;
 			}
 			else
 			{
-				echo "创建\"" . $creatingPath . "\"失败<br />";
+				return false;
 			}
 		}
+		return false;
 	}
 
 	function MoveFile($fromPath, $toPath)
