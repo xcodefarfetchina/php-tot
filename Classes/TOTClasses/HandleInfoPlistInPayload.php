@@ -46,13 +46,17 @@
 			//Bundle dir
 			$minOSVersion = $plistArray['MinimumOSVersion'];
 			//Bundle display name
-			if ($plistArray['CFBundleDisplayName'])
+			if (array_key_exists('CFBundleDisplayName', $plistArray))
 			{
 				$bundleDisplayName = $plistArray['CFBundleDisplayName'];
 			}
+			else if(array_key_exists('CFBundleName', $plistArray))
+			{
+				$bundleDisplayName = $plistArray['CFBundleName'];
+			}
 			else
 			{
-				$bundleDisplayName = "";
+				$bundleDisplayName = $plistArray['CFBundleIdentifier'];	
 			}
 
 			$returnArray['Version'] = $versionString;
