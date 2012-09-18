@@ -24,7 +24,7 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 
 #How to use TOT?
 ##Prepare a TOT server
-1.Prepare an php server. Make sure running PHP5 on it.  
+1.Prepare an php server. Make sure running PHP5.3 or higher version on it.  
   For example, I use an Apache2.2.21 running PHP 5.3.8.  
 
 2.Check server's upload settings. In Apache, open php.ini, check settings of 'upload_max_filesize' and 'post_max_size'. I set both of them 200M, so I can upload ipa files whose size are less than 200MB.  
@@ -59,6 +59,7 @@ Copyright (c) 2009 Christian Kruse, Rodney Rehm
 #Todo
 1.User interface to let developers delete uploaded ipa.  
 2.Upload and delete permission control.  
+3.Webapp compatibility on 4 inch screen.  
   
 #Other choice
 1.<http://testflightapp.com/>  
@@ -98,7 +99,7 @@ All rights reserved.
 本软件是由版权所有者和贡献者提供，但并不提供任何明示或暗示的担保，包括但不限于针对特定用途的适销性和适用性的暗示担保担保。在任何情况下，著作权人都不承担任何直接的，间接的，附带的，特殊的，惩罚性的或后果性的损失。无论起因是任何理论责任。
 
 ##准备一个TOT server
-1.准备一个可以运行PHP5服务器.我用的是Apache2.2.21和PHP 5.3.8.  
+1.准备一个可以运行PHP5.3或以上版本的服务器.我用的是Apache2.2.21和PHP 5.3.8.  
 
 2.检查服务器的上传设置。如果你也用Apache的话，打开php.ini，检查'upload_max_filesize'和'post_max_size'两个值的设置。我把这两个值都设置成了200M，所以我可以向我的TOT server上传200M以内的ipa。  
 
@@ -132,6 +133,7 @@ Copyright (c) 2009 Christian Kruse, Rodney Rehm
 #Todo
 1.增加删除已上传测试包的UI。  
 2.增加上传和删除的权限管理。  
+3.Webapp在4英寸屏幕上的兼容性。  
   
 #其他OTA选择
 1.<http://testflightapp.com/>  
