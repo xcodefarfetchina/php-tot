@@ -56,11 +56,14 @@
 
 <p>3.Imagine your investment is in another country, and wants to see the progress of your developing iOS app. You just mail him your TOT server's URL. He opens the URL in his mobile Safari, the download and installation begins magically. The download speed depends on your server's network speed and is likely much more faster than App Store's download speed.</p>
 
+<p>4.Easy to do server migration.
+  Just copy php-tot and paste it to another server. Data in it won't be damaged.</p>
+
 <h1>How to use TOT?</h1>
 
 <h2>Prepare a TOT server</h2>
 
-<p>1.Prepare an php server. Make sure running PHP5 on it.<br>
+<p>1.Prepare an php server. Make sure running PHP5.3 or higher version on it.<br>
   For example, I use an Apache2.2.21 running PHP 5.3.8.  </p>
 
 <p>2.Check server's upload settings. In Apache, open php.ini, check settings of 'upload_max_filesize' and 'post_max_size'. I set both of them 200M, so I can upload ipa files whose size are less than 200MB.  </p>
@@ -94,7 +97,8 @@ Copyright (c) 2009 Christian Kruse, Rodney Rehm</p>
 <h1>Todo</h1>
 
 <p>1.User interface to let developers delete uploaded ipa.<br>
-2.Upload and delete permission control.  </p>
+2.Upload and delete permission control.<br>
+3.Webapp compatibility on 4 inch screen.  </p>
 
 <h1>Other choice</h1>
 
@@ -125,6 +129,8 @@ Copyright (c) 2009 Christian Kruse, Rodney Rehm</p>
 
 <p>3.设想你的投资人在另一个国家，他想看看你们的iOS app开发的怎么样了。你只管把TOT server的URL发给他，他在iPhone上打开了这个URL，只需轻点两下，安装就可以开始了。而且你服务器带宽好的话，从自己的TOT server下载ipa比从App Store下要快很多。</p>
 
+<p>4.可以无痛服务器迁移。只要把php-tot复制粘贴到另一个服务器就好，数据毫发无伤。</p>
+
 <h1>如何使用?</h1>
 
 <h2>致天朝的程序员们</h2>
@@ -139,7 +145,7 @@ All rights reserved.<br>
 
 <h2>准备一个TOT server</h2>
 
-<p>1.准备一个可以运行PHP5服务器.我用的是Apache2.2.21和PHP 5.3.8.  </p>
+<p>1.准备一个可以运行PHP5.3或以上版本的服务器.我用的是Apache2.2.21和PHP 5.3.8.  </p>
 
 <p>2.检查服务器的上传设置。如果你也用Apache的话，打开php.ini，检查'upload_max_filesize'和'post_max_size'两个值的设置。我把这两个值都设置成了200M，所以我可以向我的TOT server上传200M以内的ipa。  </p>
 
@@ -172,7 +178,8 @@ Copyright (c) 2009 Christian Kruse, Rodney Rehm</p>
 <h1>Todo</h1>
 
 <p>1.增加删除已上传测试包的UI。<br>
-2.增加上传和删除的权限管理。  </p>
+2.增加上传和删除的权限管理。<br>
+3.Webapp在4英寸屏幕上的兼容性。  </p>
 
 <h1>其他OTA选择</h1>
 
