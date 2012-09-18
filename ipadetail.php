@@ -1,17 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+
 <link rel="stylesheet" type="text/css" href="Resources/axelfamilyfont.css"/>
 <link rel="stylesheet" type="text/css" href="Resources/generalstyle.css"/>
+
 <link rel="apple-touch-icon-precomposed" href="Images/Icon.png"/>
-<link rel="shortcut icon" href="Images/Icon.png" >
-<link href="Images/Default.jpg" media="(device-width: 320px)" rel="apple-touch-startup-image">
-<link href="Images/DefaultIpadPortrait.jpg" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
-<link href="Images/DefaultIpadLandscape.jpg" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
-<link href="Images/DefaultIpadLandscape@2x.jpg" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+<link rel="shortcut icon" href="Images/Icon.png"/>
+
+<link rel="apple-touch-startup-image" href="Images/Default.png" media="(device-width: 320px)" sizes="320x640"/>
+<link rel="apple-touch-startup-image" href="Images/Default@2x.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" sizes="640x920"/>
+<link rel="apple-touch-startup-image" href="Images/Default-568h@2x.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" sizes="640x1096"/>
+
+<link href="Images/DefaultIpadPortrait.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image"/>
+<link href="Images/DefaultIpadPortrait@2x.png" media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"/>
+<link href="Images/DefaultIpadLandscape.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image"/>
+<link href="Images/DefaultIpadLandscape@2x.png" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"/>
+
 <title>TOT - Version Detail</title>
 </head>
 
