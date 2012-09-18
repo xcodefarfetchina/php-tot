@@ -31,32 +31,153 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h1>Intruduction</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h2>What's TOT?</h2>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>TOT is a solution includes:<br>
+1. A server that you can upload your beta test ipa packages to. We call it "TOT server".<br>
+2. A web app that you can download the uploaded ipa packages from TOT server directly to your iOS devices.<br>
+   The downloaded ipa will be installed to your device.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>It is created by php and uses apple OTA technology.</p>
 
-<h3>Designer Templates</h3>
+<h2>Then what's OTA?</h2>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>OTA stands for over-the-air. With this technology, you can install beta test ipa packages to iOS devices via wifi, and USB cable is not required any more. It wirelessly improve ad-hoc distribution.</p>
 
-<h3>Rather Drive Stick?</h3>
+<h2>Why TOT?</h2>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>There are several ways to achieve OTA installation. However, TOT is the most convenient way to build a OTA server, and the most convenient way to release beta test ipa package.   </p>
 
-<h3>Authors and Contributors</h3>
+<p>1.Imagine your developing iOS project needs an alpha test. There are 20 test engineers of this large project.You just need to send them your TOT server's URL. No e-mail ipa attachments. No USB cable installation.</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>2.Imagine you are developing a new version of your iOS app. You have 3 team mates, each one develops a prototype, so there are 4 prototypes your boss can choose from. You upload four ipa packages to TOT server. Your boss opened TOT server's URL in mobile safari, and he can install every version conveniently.</p>
 
-<h3>Support or Contact</h3>
+<p>3.Imagine your investment is in another country, and wants to see the progress of your developing iOS app. You just mail him your TOT server's URL. He opens the URL in his mobile Safari, the download and installation begins magically. The download speed depends on your server's network speed and is likely much more faster than App Store's download speed.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<h1>How to use TOT?</h1>
+
+<h2>Prepare a TOT server</h2>
+
+<p>1.Prepare an php server. Make sure running PHP5 on it.<br>
+  For example, I use an Apache2.2.21 running PHP 5.3.8.  </p>
+
+<p>2.Check server's upload settings. In Apache, open php.ini, check settings of 'upload_max_filesize' and 'post_max_size'. I set both of them 200M, so I can upload ipa files whose size are less than 200MB.  </p>
+
+<p>3.Download php-tot from github. Copy php-tot folder to your PHP server. For example, I'm using a MAC, Apache server's documents path is '/Library/WebServer/Documents'. I copy php-tot to '/Library/WebServer/Documents'</p>
+
+<p>4.Change file permission for php-tot.<br>
+  For example, in my mac, Apache server's user is _www, _www's group is wheel. php-tot be copied to '/Library/WebServer/Documents'. Open Terminal and type these commands.<br>
+    cd /Library/WebServer/Documents<br>
+    sudo chown _www:wheel php-tot  </p>
+
+<h2>Upload ipa packages</h2>
+
+<p>1.Open TOT server's URL in your MAC/PC's browser. For example, mine PHP server's address is 192.168.1.103, so I opened '<a href="http://192.168.1.103/php-tot/upload">http://192.168.1.103/php-tot/upload</a>' in Chrome. You may upload php-tot to a server which has a domain.  </p>
+
+<p>2.Click 'Choose File', then choose an illegal beta test ipa. Type some change log of this version, then click 'Submit'。</p>
+
+<h2>Installation on mobiles</h2>
+
+<p>1.Open TOT server's URL in your mobile Safari, mine is '<a href="http://192.168.1.103/php-tot">http://192.168.1.103/php-tot</a>'. You can add this page to iOS device's home screen. It looks like this:<br><img src="https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot1.png?raw=true" alt="TOT server list" title="Choose ipa from TOT server"></p>
+
+<p>2.Choose a product, then the detail page of this product shows. Touch "Install" button. Then the installation will begin. Very convenient, isn't it?<br><img src="https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot2.png?raw=true" alt="TOT server ipa detail" title="Ipa detail from TOT server"><img src="https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot3.png?raw=true" alt="TOT server installation" title="Install ipa from TOT server"></p>
+
+<h1>License</h1>
+
+<p>php-tot is published under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.  </p>
+
+<p>php-tot uses <a href="https://github.com/rodneyrehm/CFPropertyList">CFPropertyList</a>.<br><a href="https://github.com/rodneyrehm/CFPropertyList">CFPropertyList</a> is under The <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.<br>
+Copyright (c) 2009 Christian Kruse, Rodney Rehm</p>
+
+<h1>Todo</h1>
+
+<p>1.User interface to let developers delete uploaded ipa.<br>
+2.Upload and delete permission control.  </p>
+
+<h1>Other choice</h1>
+
+<p>1.<a href="http://testflightapp.com/">http://testflightapp.com/</a><br>
+2.<a href="http://www.hanchorllc.com/betabuilder-for-ios/">http://www.hanchorllc.com/betabuilder-for-ios/</a>  </p>
+
+<h1>简体中文 盒装正版 介绍</h1>
+
+<h2>什么是TOT?</h2>
+
+<p>TOT是一套完整的OTA解决方案，它包括:<br>
+1. Ipa安装包上传与自动部署服务器. 我们称之为"TOT server"。<br>
+2. 一个用来在iPhone/iPad/touch上查看ipa简介、安装ipa的webapp。</p>
+
+<p>TOT使用PHP实现，使用苹果的OTA技术。</p>
+
+<h2>什么是苹果的OTA技术?</h2>
+
+<p>OTA的意思是over-the-air。有了它，你可以在iOS的Safari上直接下载安装测试ipa，告别USB数据线，告别邮件附件。</p>
+
+<h2>为什么要用TOT?</h2>
+
+<p>OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发布测试ipa安装包，TOT是最方便的方式。   </p>
+
+<p>1.设想你将要为正在进行的iOS工程开始内测。你正在进行的大工程需要20个测试工程师（我知道这在天朝不现实）。你只需要把TOT server的URL发给他们，不需要给每个人都发送一个带ipa附件的邮件，也不需要插线安装。</p>
+
+<p>2.摄像你正在开发一个App的新版本。你有3个iOS开发工程师同事，每个人开发一种原型，以便让你们的老板从四个原型中挑一种最好的。你们把ipa安装包都上传到TOT server。你的老板在iPhone上打开TOT server的URL，只需要手指点点就可以选择他想看的原型。  </p>
+
+<p>3.设想你的投资人在另一个国家，他想看看你们的iOS app开发的怎么样了。你只管把TOT server的URL发给他，他在iPhone上打开了这个URL，只需轻点两下，安装就可以开始了。而且你服务器带宽好的话，从自己的TOT server下载ipa比从App Store下要快很多。</p>
+
+<h1>如何使用?</h1>
+
+<h2>致天朝的程序员们</h2>
+
+<p>Copyright (c) 2012, Open Fibers<br>
+All rights reserved.<br>
+再分发源代码或使用二进制形式再分发php-tot，修改或不做修改，都需满足下列条件：<br>
+再分发源代码时必须保留上述版权声明，此条件列表和以下免责声明。<br>
+以二进制形式进行再分发必须复制上述版权声明，此条件列表和下面的免责声明中的文档和/或其他材料的分布。<br>
+"Open Fibers"的名称，和php-tot的贡献者的名字，都不可用于认可或推广未经事先书面许可，由本软件衍生的产品。<br>
+本软件是由版权所有者和贡献者提供，但并不提供任何明示或暗示的担保，包括但不限于针对特定用途的适销性和适用性的暗示担保担保。在任何情况下，著作权人都不承担任何直接的，间接的，附带的，特殊的，惩罚性的或后果性的损失。无论起因是任何理论责任。</p>
+
+<h2>准备一个TOT server</h2>
+
+<p>1.准备一个可以运行PHP5服务器.我用的是Apache2.2.21和PHP 5.3.8.  </p>
+
+<p>2.检查服务器的上传设置。如果你也用Apache的话，打开php.ini，检查'upload_max_filesize'和'post_max_size'两个值的设置。我把这两个值都设置成了200M，所以我可以向我的TOT server上传200M以内的ipa。  </p>
+
+<p>3.下载php-tot从github。把php-tot文件夹复制到你的PHP服务器。我的MAC中Apache服务器的文件路径是'/Library/WebServer/Documents'，所以我把php-tot复制到了'/Library/WebServer/Documents'下面。  </p>
+
+<p>4.更改php-tot的文件权限<br>
+  举例说明：在我的MAC中，Apache服务器的用户是_www， _www所属用户组是wheel。php-tot已被复制到'/Library/WebServer/Documents'。打开命令行，敲下以下命令<br>
+    cd /Library/WebServer/Documents<br>
+    sudo chown _www:wheel php-tot  </p>
+
+<h2>上传ipa安装包</h2>
+
+<p>1.在你MAC/PC的浏览器中打开TOT server的URL。 我的Apache的地址是192.168.1.103，所以我在Chrome中打开'<a href="http://192.168.1.103/php-tot/upload'%E3%80%82%E4%BD%A0%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%87%86%E5%A4%87%E4%B8%80%E5%8F%B0%E5%B8%A6%E5%9F%9F%E5%90%8D%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%82">http://192.168.1.103/php-tot/upload'。你也可以准备一台带域名的服务器。</a>  </p>
+
+<p>2.点击'Choose File', 然后选择一个合法的ipa测试安装包。写点此次发布的Change log，然后点击'Submit'。</p>
+
+<h2>安装到手机</h2>
+
+<p>1.在iPhone/iPad的Safari里打开TOT server的URL，我的是'<a href="http://192.168.1.103/php-tot'%E3%80%82">http://192.168.1.103/php-tot'。</a> 你可以把这个页面添加到主屏幕。页面如下:<br><img src="https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot1.png?raw=true" alt="TOT server list" title="Choose ipa from TOT server"></p>
+
+<p>2.选择一个想要安装的产品，页面将会跳转到此产品的详情页。点击"Install"按钮，安装就会开始。是不是很方便？<br><img src="https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot2.png?raw=true" alt="TOT server ipa detail" title="Ipa detail from TOT server"><img src="https://github.com/OpenFibers/php-tot/blob/master/ScreenShots/ScreenShot3.png?raw=true" alt="TOT server installation" title="Install ipa from TOT server"></p>
+
+<h1>License</h1>
+
+<p>php-tot is published under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.  </p>
+
+<p>php-tot uses <a href="https://github.com/rodneyrehm/CFPropertyList">CFPropertyList</a>.<br><a href="https://github.com/rodneyrehm/CFPropertyList">CFPropertyList</a> is under The <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.<br>
+Copyright (c) 2009 Christian Kruse, Rodney Rehm</p>
+
+<h1>Todo</h1>
+
+<p>1.增加删除已上传测试包的UI。<br>
+2.增加上传和删除的权限管理。  </p>
+
+<h1>其他OTA选择</h1>
+
+<p>1.<a href="http://testflightapp.com/">http://testflightapp.com/</a><br>
+2.<a href="http://www.hanchorllc.com/betabuilder-for-ios/">http://www.hanchorllc.com/betabuilder-for-ios/</a>  </p>
       </section>
     </div>
 
