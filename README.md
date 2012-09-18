@@ -61,7 +61,6 @@ php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).
 #Todo
 1.User interface to let developers delete uploaded ipa.  
 2.Upload and delete permission control.  
-3.Webapp compatibility on 4 inch screen.  
   
 #Other choice
 1.<http://testflightapp.com/>  
@@ -136,7 +135,6 @@ php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).
 #Todo
 1.增加删除已上传测试包的UI。  
 2.增加上传和删除的权限管理。  
-3.Webapp在4英寸屏幕上的兼容性。  
   
 #其他OTA选择
 1.<http://testflightapp.com/>  
