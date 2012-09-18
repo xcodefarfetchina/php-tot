@@ -5,7 +5,7 @@
 TOT is a solution includes:  
 1. A server that you can upload your beta test ipa packages to. We call it "TOT server".  
 2. A web app that you can download the uploaded ipa packages from TOT server directly to your iOS devices.  
-   The downloaded ipa will be installed to your device.
+   The downloaded ipa will be installed to your device. Full compatible with iPhone5.
 
 It is created by php and uses apple OTA technology.
 
@@ -56,8 +56,7 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 php-tot is published under the [MIT License](http://www.opensource.org/licenses/mit-license.php).  
   
 php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).  
-[CFPropertyList](https://github.com/rodneyrehm/CFPropertyList) is under The [MIT License](http://www.opensource.org/licenses/mit-license.php).  
-Copyright (c) 2009 Christian Kruse, Rodney Rehm
+[CFPropertyList](https://github.com/rodneyrehm/CFPropertyList) is under The [MIT License](http://www.opensource.org/licenses/mit-license.php). Copyright (c) 2009 Christian Kruse, Rodney Rehm
 
 #Todo
 1.User interface to let developers delete uploaded ipa.  
@@ -73,7 +72,7 @@ Copyright (c) 2009 Christian Kruse, Rodney Rehm
 
 TOT是一套完整的OTA解决方案，它包括:  
 1. Ipa安装包上传与自动部署服务器. 我们称之为"TOT server"。  
-2. 一个用来在iPhone/iPad/touch上查看ipa简介、安装ipa的webapp。
+2. 一个用来在iPhone/iPad/touch上查看ipa简介、安装ipa的webapp。已兼容iPhone5的新分辨率。
 
 TOT使用PHP实现，使用苹果的OTA技术。
 
@@ -132,8 +131,7 @@ All rights reserved.
 php-tot is published under the [MIT License](http://www.opensource.org/licenses/mit-license.php).  
   
 php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).  
-[CFPropertyList](https://github.com/rodneyrehm/CFPropertyList) is under The [MIT License](http://www.opensource.org/licenses/mit-license.php).  
-Copyright (c) 2009 Christian Kruse, Rodney Rehm
+[CFPropertyList](https://github.com/rodneyrehm/CFPropertyList) is under The [MIT License](http://www.opensource.org/licenses/mit-license.php). Copyright (c) 2009 Christian Kruse, Rodney Rehm
 
 #Todo
 1.增加删除已上传测试包的UI。  
