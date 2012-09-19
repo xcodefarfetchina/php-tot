@@ -5,11 +5,14 @@
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
+
+	namespace PHP_TOT_OTAServer;
+
 	function unzip($filePath, $destinationDir)
 	{
 		echo "unzip " . $filePath . '<br />';
 
-		$zip = new ZipArchive;
+		$zip = new \ZipArchive;
 		$res = $zip->open($filePath);
 
 		if ($res === TRUE)

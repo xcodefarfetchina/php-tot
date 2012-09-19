@@ -5,11 +5,14 @@
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
-require_once("XMLHelper.php");
 
-/*
-* return value : array of manifest
-*/
+	namespace PHP_TOT_OTAServer;
+
+	require_once("XMLHelper.php");
+
+	/*
+	* return value : array of manifest
+	*/
 	function GenManifestArray(
 		$ipaURL,
 		$bundleIdentifier,

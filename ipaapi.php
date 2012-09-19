@@ -5,6 +5,9 @@
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
+
+	namespace PHP_TOT_OTAServer;
+	
 	error_reporting( E_ALL );
 	ini_set( 'display_errors', 'on' );
 

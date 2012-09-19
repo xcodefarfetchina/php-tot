@@ -5,6 +5,9 @@
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
+
+	namespace PHP_TOT_OTAServer;
+
 	error_reporting( E_ALL );
 	ini_set( 'display_errors', 'on' );
 
@@ -13,7 +16,6 @@
 	require_once 'Classes/TOTClasses/FileSystemHelper.php';
 	require_once 'Classes/TOTClasses/GenManifest.php';
 	require_once 'Classes/TOTClasses/XMLHelper.php';
-	require_once(__DIR__.'/Classes/ThirdPartyLib/CFPropertyList/CFPropertyList.php');
 	require 'Classes/TOTClasses/GetRootURL.php';
 
 	function main()

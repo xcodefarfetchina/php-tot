@@ -5,6 +5,9 @@
 	25'O Clock Inc.
 	Sep 9 2012
 	 */
+
+	namespace PHP_TOT_OTAServer;
+	
 	//如果文件已存在，返回false
 	//如果创建失败，返回false
 	//如果创建成功，返回true

@@ -1,4 +1,8 @@
 <?php
+	namespace PHP_TOT_OTAServer;
+?>
+
+<?php
 	
 	/*	
 	Created by Open Fibers
@@ -13,7 +17,6 @@
 	require_once 'Classes/TOTClasses/FileSystemHelper.php';
 	require_once 'Classes/TOTClasses/GenManifest.php';
 	require_once 'Classes/TOTClasses/GetRootURL.php';
-	require_once(__DIR__.'/Classes/ThirdPartyLib/CFPropertyList/CFPropertyList.php');
 
 
 	// echo json_encode($_SERVER);
