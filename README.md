@@ -13,7 +13,7 @@ It is created by php and uses apple OTA technology.
 
 OTA stands for over-the-air. With this technology, you can install beta test ipa packages to iOS devices via wifi, and USB cable is not required any more. It wirelessly improve ad-hoc distribution.
 
-##Why TOT?
+##Why OTA?
 There are several ways to achieve OTA installation. However, TOT is the most convenient way to build a OTA server, and the most convenient way to release beta test ipa package.   
 
 1.Imagine your developing iOS project needs an alpha test. There are 20 test engineers of this large project.You just need to send them your TOT server's URL. No e-mail ipa attachments. No USB cable installation.
@@ -22,6 +22,10 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 
 3.Imagine your investment is in another country, and wants to see the progress of your developing iOS app. You just mail him your TOT server's URL. He opens the URL in his mobile Safari, the download and installation begins magically. The download speed depends on your server's network speed and is likely much more faster than App Store's download speed.
   
+##Features
+1.No database required. Simple file and directory storage.  
+2.Dynamic manifest technology.  
+3.Beautiful web app for install. Compatible with iPhone5.  
 4.Easy to do server migration.
   Just copy php-tot and paste it to another server. Data in it won't be damaged.
 
@@ -63,8 +67,17 @@ php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).
 2.Upload and delete permission control.  
   
 #Other choice
-1.<http://testflightapp.com/>  
-2.<http://www.hanchorllc.com/betabuilder-for-ios/>  
+
+Web Service:  
+1.[Test Flight](http://testflightapp.com)  
+2.[diawi](http://www.diawi.com)  
+3.[AppSendr](http://www.appsendr.com)  
+4.[HockeyApp](http://www.hockeyapp.net)  
+  
+Open Sourced project:  
+1.[HockeyKit](https://github.com/TheRealKerni/HockeyKit) : Open sourced PHP5 project.  
+2.[BetaBuilder for iOS](http://www.hanchorllc.com/betabuilder-for-ios/) : Open sourced native MAC app. It should be used with a static web server.  
+
 #简体中文 盒装正版 介绍
 
 ##什么是TOT?
@@ -79,7 +92,7 @@ TOT使用PHP实现，使用苹果的OTA技术。
 
 OTA的意思是over-the-air。有了它，你可以在iOS的Safari上直接下载安装测试ipa，告别USB数据线，告别邮件附件。
 
-##为什么要用TOT?
+##为什么要用OTA?
 OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发布测试ipa安装包，TOT是最方便的方式。   
 
 1.设想你将要为正在进行的iOS工程开始内测。你正在进行的大工程需要20个测试工程师（我知道这在天朝不现实）。你只需要把TOT server的URL发给他们，不需要给每个人都发送一个带ipa附件的邮件，也不需要插线安装。
@@ -88,6 +101,10 @@ OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发�
 
 3.设想你的投资人在另一个国家，他想看看你们的iOS app开发的怎么样了。你只管把TOT server的URL发给他，他在iPhone上打开了这个URL，只需轻点两下，安装就可以开始了。而且你服务器带宽好的话，从自己的TOT server下载ipa比从App Store下要快很多。
   
+##特点
+1.无需任何数据库，单纯文件存储；  
+2.动态manifest技术，好处参见第4条；  
+3.优雅的web app安装界面，让你在测试、风投、其他屌丝码农面前辈儿有面子；完美兼容iPhone5；  
 4.可以无痛服务器迁移。只要把php-tot复制粘贴到另一个服务器就好，数据毫发无伤。
 
 #如何使用?
@@ -137,5 +154,14 @@ php-tot uses [CFPropertyList](https://github.com/rodneyrehm/CFPropertyList).
 2.增加上传和删除的权限管理。  
   
 #其他OTA选择
-1.<http://testflightapp.com/>  
-2.<http://www.hanchorllc.com/betabuilder-for-ios/>  
+
+Web Service:  
+1.[Test Flight](http://testflightapp.com)  
+2.[diawi](http://www.diawi.com)  
+3.[AppSendr](http://www.appsendr.com)  
+4.[HockeyApp](http://www.hockeyapp.net)  
+  
+开源项目:  
+1.[HockeyKit](https://github.com/TheRealKerni/HockeyKit) : 开源项目，同样使用PHP5.  
+2.[BetaBuilder for iOS](http://www.hanchorllc.com/betabuilder-for-ios/) : 开源项目，是一个MAC app，需一个静态web服务器配合使用.  
+
