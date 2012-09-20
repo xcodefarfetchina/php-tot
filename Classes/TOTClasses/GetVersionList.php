@@ -9,6 +9,7 @@
 	namespace PHP_TOT_OTAServer;
 
 	require 'XMLHelper.php';
+	require 'SortHelper.php';
 
 	//返回某identifier下beta version最大的版本的信息
 	//若identifier下无beta version则返回null
@@ -80,14 +81,17 @@
 					if ($file !== "." && $file !== ".." && is_dir($documentPath . $file))//如果$file是文件夹
 					{
 						$lastVersionInfo = lastVersionInfoForIdentifier($file);
-						$releaseDate = $lastVersionInfo["ReleaseDate"];
-						$lastVersionArray[$releaseDate] = $lastVersionInfo;
+						$lastVersionArray[] = $lastVersionInfo;
 					}
 				}
 				closedir($handle);
 			}
 		}
-		rsort($lastVersionArray);
+
+		//按发布日期排序
+		$sortHelper = new SortHelper;
+		$lastVersionArray = $sortHelper->ReversedSortArrayWithKey($lastVersionArray, 'ReleaseDate');
+
 		if (count($lastVersionArray) == 0)
 		{
 			$error = "No beta test ipa package available.";
