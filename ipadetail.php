@@ -163,7 +163,7 @@ function backToPage(location)
 			$bodyHTMLString .= "<table>";
 			$bodyHTMLString .= "<tr>";
 			$bodyHTMLString .= "<td>";
-			$bodyHTMLString .= "<p style=\"font-family: AxelBold; color: #333333; font-size: 16px; padding-left:12px; padding-right:12px; padding-top:3px;\">$changeLog</p>";
+			$bodyHTMLString .= "<p style=\"white-space:pre-wrap; font-family: AxelBold; color: #333333; font-size: 16px; padding-left:12px; padding-right:12px; padding-top:3px;\">$changeLog</p>";
 			$bodyHTMLString .= "</td>";
 			$bodyHTMLString .= "</tr>";
 			$bodyHTMLString .= "</table>";
