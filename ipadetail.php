@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon-precomposed" href="Images/Icon.png"/>
 <link rel="shortcut icon" href="Images/Icon.png"/>
 
-<link rel="apple-touch-startup-image" href="Images/Default.png" media="(device-width: 320px)" sizes="320x640"/>
+<link rel="apple-touch-startup-image" href="Images/Default.png" media="(device-width: 320px)" sizes="320x460"/>
 <link rel="apple-touch-startup-image" href="Images/Default@2x.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" sizes="640x920"/>
 <link rel="apple-touch-startup-image" href="Images/Default-568h@2x.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" sizes="640x1096"/>
 
