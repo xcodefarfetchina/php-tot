@@ -140,7 +140,7 @@
 				closedir($handle);
 			}
 			//按beta version排序
-			rsort($infoArray, SORT_NUMERIC);
+			krsort($infoArray, SORT_NUMERIC);
 			if (count($infoArray) == 0)
 			{
 				$error = "Bundle identifier has no beta version.";
