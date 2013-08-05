@@ -1,3 +1,5 @@
+#Stop updating. Please move to [TOT2](https://github.com/OpenFibers/TOT2)
+
 #Intruduction
 
 ##What's TOT?
@@ -98,7 +100,7 @@ OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发�
 
 1.设想你将要为正在进行的iOS工程开始内测。你正在进行的大工程需要20个测试工程师（我知道这在天朝不现实）。你只需要把TOT server的URL发给他们，不需要给每个人都发送一个带ipa附件的邮件，也不需要插线安装。
   
-2.摄像你正在开发一个App的新版本。你有3个iOS开发工程师同事，每个人开发一种原型，以便让你们的老板从四个原型中挑一种最好的。你们把ipa安装包都上传到TOT server。你的老板在iPhone上打开TOT server的URL，只需要手指点点就可以选择他想看的原型。  
+2.设想你正在开发一个App的新版本。你有3个iOS开发工程师同事，每个人开发一种原型，以便让你们的老板从四个原型中挑一种最好的。你们把ipa安装包都上传到TOT server。你的老板在iPhone上打开TOT server的URL，只需要手指点点就可以选择他想看的原型。  
 
 3.设想你的投资人在另一个国家，他想看看你们的iOS app开发的怎么样了。你只管把TOT server的URL发给他，他在iPhone上打开了这个URL，只需轻点两下，安装就可以开始了。而且你服务器带宽好的话，从自己的TOT server下载ipa比从App Store下要快很多。
   
