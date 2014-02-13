@@ -40,7 +40,15 @@
 							}
 							else
 							{
-								$versionInfoArray["ImagePath"] = "";	
+								$imagePath = $dir . "iTunesArtwork.png";
+								if (file_exists($imagePath))
+								{
+									$versionInfoArray["ImagePath"] = $imagePath;
+								}
+								else
+								{
+									$versionInfoArray["ImagePath"] = "";
+								}
 							}
 							
 							$betaversion = $versionInfoArray["BetaVersion"];
@@ -130,7 +138,15 @@
 							}
 							else
 							{
-								$versionInfoArray["ImagePath"] = "";	
+								$imagePath = $dir . "/iTunesArtwork.png";
+								if (file_exists($imagePath))
+								{
+									$versionInfoArray["ImagePath"] = $imagePath;
+								}
+								else
+								{
+									$versionInfoArray["ImagePath"] = "";
+								}
 							}
 							$betaversion = $versionInfoArray["BetaVersion"];
 							$infoArray[$betaversion] = $versionInfoArray;
@@ -171,7 +187,15 @@
 			}
 			else
 			{
-				$versionInfoArray["ImagePath"] = "";
+				$imagePath = $documentPath . $identifier . "/iTunesArtwork.png";
+				if (file_exists($imagePath))
+				{
+					$versionInfoArray["ImagePath"] = $imagePath;
+				}
+				else
+				{
+					$versionInfoArray["ImagePath"] = "";
+				}
 			}
 		}
 
