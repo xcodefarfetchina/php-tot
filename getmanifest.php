@@ -48,28 +48,47 @@
 
 		//存放此版本的文件夹
 		$dirPath = "Documents/" . $identifier . "/" . $betaversion . "/";
-		//获取存放此版本的信息的xml路径
-		$xmlPath = $dirPath . "VersionInfo.plist";
-
-		//从xml中读取出关联数组
-		$versionInfoArray = ArrayFromXMLPath($xmlPath);
-		if (!$versionInfoArray)
+		$apkPath = $dirPath . "BetaTest.apk";
+		if( file_exists( $apkPath ) )
 		{
-			echo "Version info is missing!";
-		}
+			$handle = fopen( $apkPath, "rb" );
+			if( $handle )
+			{
+				$contents = fread( $handle, filesize( $apkPath ) );
+				fclose( $handle );
+			}
 
-		//用版本信息数组生成manifest.plist的xml字符串
-		$manifestXMLString = GenManifestXMLString(
-			getRootURL() . $dirPath . "BetaTest.ipa",
-			$versionInfoArray["BundleIdentifier"],
-			$versionInfoArray["Version"],
-			$versionInfoArray["Title"]
-		);
-		echo $manifestXMLString;
+			$downloadFileName = "BetaTest.apk";
+			header( 'Content-Type: application/vnd.android.package-archive' );
+			header( "Content-Disposition: attachment; filename=$downloadFileName" );
+			echo $contents;
+		}
+		else
+		{
+			//获取存放此版本的信息的xml路径
+			$xmlPath = $dirPath . "VersionInfo.plist";
+
+			//从xml中读取出关联数组
+			$versionInfoArray = ArrayFromXMLPath($xmlPath);
+			if (!$versionInfoArray)
+			{
+				echo "Version info is missing!";
+			}
+
+			//用版本信息数组生成manifest.plist的xml字符串
+			$manifestXMLString = GenManifestXMLString(
+				getRootURL() . $dirPath . "BetaTest.ipa",
+				$versionInfoArray["BundleIdentifier"],
+				$versionInfoArray["Version"],
+				$versionInfoArray["Title"]
+			);
+
+			$downloadFileName = "manifest.plist";
+			header("Content-Disposition: attachment; filename=$downloadFileName");
+			echo $manifestXMLString;
+		}
 	}
 
-	$downloadFileName = "manifest.plist";
-	header("Content-Disposition: attachment; filename=$downloadFileName");
 	main();
 ?>
 

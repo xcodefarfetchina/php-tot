@@ -17,6 +17,8 @@
 	require_once 'Classes/TOTClasses/GenManifest.php';
 	require_once 'Classes/TOTClasses/XMLHelper.php';
 
+	require_once 'Classes/ApkParser/ApkParser.php';
+
 /*
 * $tempFile : handle of uploaded temp file
 * return value : is temp file available
@@ -58,9 +60,13 @@
 		$uploadDir = 'Temp/';
 		CreateDir($uploadDir);
 
+		$filename = "BetaTest.ipa";
+		if( strtolower( substr( $tempFile["name"], -4 ) ) == ".apk" )
+			$filename = "BetaTest.apk";
+
 		//将其复制到非临时目录
 		$tempPath = $tempFile['tmp_name'];
-		$uploadPath = $uploadDir. "BetaTest.ipa";
+		$uploadPath = $uploadDir . $filename;
 
 		echo "Moving From " . $tempPath . " to " . $uploadPath . "<br />";
 		$isMoveSuccessed = false;
@@ -76,7 +82,7 @@
 		print("</pre>");
 		if ($isMoveSuccessed)
 		{
-			return "BetaTest.ipa";
+			return $filename;
 		}
 		return null;
 	}
@@ -214,6 +220,40 @@
 		// $title)
 	}
 
+	function ArrayFromApkPath( $apkPath )
+	{
+		$returnArray = null;
+		if (file_exists($apkPath))
+		{
+			$apk = new \ApkParser( $apkPath );
+			$manifest = $apk->getManifest();
+
+			$versionString     = $manifest->getVersionName();
+			$bundleIdentifier  = $manifest->getPackageName();
+			$minOSVersion      = $manifest->getMinSdkLevel();
+
+			$ids = explode( ".", $bundleIdentifier );
+			$idsCount = count( $ids );
+			if( $idsCount >=4 )
+				$bundleDisplayName = ucfirst( $ids[$idsCount - 2] ) . ' ' . ucfirst( $ids[$idsCount - 1] );
+			else
+				$bundleDisplayName = ucfirst( $ids[$idsCount - 1] );
+
+			// print("<pre>");
+			// var_dump($plistArray);
+			// print("</pre>");
+
+			$returnArray = array();
+
+			$returnArray['Version'] = $versionString;
+			$returnArray['BundleIdentifier'] = $bundleIdentifier;
+			$returnArray['BundleDisplayName'] = $bundleDisplayName;
+			$returnArray['MinOSVersion'] = $minOSVersion;
+
+		}
+		return $returnArray;
+	}
+
 	function main()
 	{
 		if (!$_FILES)//$_FILES中没有值，上传失败
@@ -247,12 +287,21 @@
 		$ipaFileName = moveTempFileToTempDir($_FILES["file"]);
 		$ipaPath = "Temp/" . $ipaFileName;
 
-		//解压上传的ipa文件
-		$unzipPath = unzipIpaFile($ipaPath);
-		$appPath = appPathFromUnzipPath($unzipPath);
+		if( strtolower( substr( $_FILES["file"]["name"], -4 ) ) == ".apk" )
+		{
+			$appPath = $ipaPath;
 
-		//从解压出的文件中找到Info.plist,解析并找到我们感兴趣的信息放入$infoArray
-		$infoArray = ArrayFromInfoPlistPath($appPath . "Info.plist");
+			$infoArray = ArrayFromApkPath( $ipaPath );
+		}
+		else
+		{
+			//解压上传的ipa文件
+			$unzipPath = unzipIpaFile($ipaPath);
+			$appPath = appPathFromUnzipPath($unzipPath);
+
+			//从解压出的文件中找到Info.plist,解析并找到我们感兴趣的信息放入$infoArray
+			$infoArray = ArrayFromInfoPlistPath($appPath . "Info.plist");
+		}
 
 		//如果Info.plist解析失败，删掉Temp文件夹返回吧
 		if (!$infoArray)
