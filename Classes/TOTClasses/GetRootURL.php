@@ -26,6 +26,7 @@
 				$finalRootURL .= "/";
 			}
 		}
-		return "http://" . $finalRootURL;
+		$bHTTPS = isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == "on";
+		return ( $bHTTPS ? "https://" : "http://" ) . $finalRootURL;
 	}
 ?>
