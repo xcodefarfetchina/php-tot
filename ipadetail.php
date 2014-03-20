@@ -172,7 +172,10 @@ function backToPage(location)
 
 			//安装按钮
 			$bodyHTMLString .= "<div class=\"installButton\" style=\"margin-top:7px;\">";
-			$bodyHTMLString .= "<a href=\"itms-services://?action=download-manifest&url=$manifestURL\">";
+			if( $versionInfo["isApk"] )
+				$bodyHTMLString .= "<a href=\"$manifestURL\">";
+			else
+				$bodyHTMLString .= "<a href=\"itms-services://?action=download-manifest&url=$manifestURL\">";
 			$bodyHTMLString .= "<img width = 100px; height=44px; src=\"Images/InstallButton.png\"/>";				
 			$bodyHTMLString .= "</a>";
 			$bodyHTMLString .= "</div>";

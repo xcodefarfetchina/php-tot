@@ -199,10 +199,15 @@
 			}
 		}
 
+		$isApk = false;
+		$apkPath = $documentPath . $identifier . "/" . $betaversion . "/BetaTest.apk";
+		if( file_exists( $apkPath ) )
+			$isApk = true;
+
 		$returnArray = array("error" => "beta version for bundle identifier doesn't exist");
 		if ($versionInfoArray)
 		{
-			$returnArray = array("error" => "OK", "VersionInfo" => $versionInfoArray);
+			$returnArray = array("error" => "OK", "VersionInfo" => $versionInfoArray, "isApk" => $isApk);
 		}
 		return $returnArray;
 	}
