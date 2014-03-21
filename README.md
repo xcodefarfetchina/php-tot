@@ -1,21 +1,16 @@
-#Stop updating. Please move to [TOT2](https://github.com/OpenFibers/TOT2)
-
 #Intruduction
+
+Now supports iOS 7.1 and Android. Very grateful to @porter-liu for the two features.
 
 ##What's TOT?
 
-TOT is a solution includes:  
-1. A server that you can upload your beta test ipa packages to. We call it "TOT server".  
-2. A web app that you can download the uploaded ipa packages from TOT server directly to your iOS devices.  
-   The downloaded ipa will be installed to your device. Full compatible with iPhone5.
-
+TOT is a php app for easily deploying OTA installation of iOS's ipa packages and Android's apk packages.
 It is created by php and uses apple OTA technology.
 
-##Then what's OTA?
+##Then What's OTA?
 
-OTA stands for over-the-air. With this technology, you can install beta test ipa packages to iOS devices via wifi, and USB cable is not required any more. It wirelessly improve ad-hoc distribution.
+OTA stands for over-the-air. With this technology, you can install beta test ipa/apk packages to iOS and Android devices via wifi, and USB cable is not required any more. It wirelessly improve ad-hoc distribution.
 
-##Why OTA?
 There are several ways to achieve OTA installation. However, TOT is the most convenient way to build a OTA server, and the most convenient way to release beta test ipa package.   
 
 1.Imagine your developing iOS project needs an alpha test. There are 20 test engineers of this large project.You just need to send them your TOT server's URL. No e-mail ipa attachments. No USB cable installation.
@@ -27,10 +22,9 @@ There are several ways to achieve OTA installation. However, TOT is the most con
 ##Features
 
 1.No database required. Simple file and directory storage.  
-2.Dynamic manifest technology.  
-3.Beautiful web app for install. Compatible with iPhone5.  
-4.Easy to do server migration.
-  Just copy php-tot and paste it to another server. Data in it won't be damaged.
+2.Dynamic manifest technology, easy to do server migration.
+  Just copy php-tot and paste it to another server.  
+3.Supports iOS7.1 and Android. 
 
 #How to use TOT?
 ##Prepare a TOT server
@@ -85,17 +79,14 @@ Open Sourced project:
 
 ##什么是TOT?
 
-TOT是一套完整的OTA解决方案，它包括:  
-1. Ipa安装包上传与自动部署服务器. 我们称之为"TOT server"。  
-2. 一个用来在iPhone/iPad/touch上查看ipa简介、安装ipa的webapp。已兼容iPhone5的新分辨率。
+TOT是一个php的app，用来部署 iOS ipa 和 Android apk的OTA安装。使用简便。
 
-TOT使用PHP实现，使用苹果的OTA技术。
+##什么是OTA安装?
 
-##什么是苹果的OTA技术?
+下面这段文字是2012年写的，当时OTA发布还没像现在这么普及，如果你已了解了OTA发布，请跳过这段文字。
 
 OTA的意思是over-the-air。有了它，你可以在iOS的Safari上直接下载安装测试ipa，告别USB数据线，告别邮件附件。
 
-##为什么要用OTA?
 OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发布测试ipa安装包，TOT是最方便的方式。   
 
 1.设想你将要为正在进行的iOS工程开始内测。你正在进行的大工程需要20个测试工程师（我知道这在天朝不现实）。你只需要把TOT server的URL发给他们，不需要给每个人都发送一个带ipa附件的邮件，也不需要插线安装。
@@ -107,7 +98,7 @@ OTA已经有了为数不多的几种良好封装。 但创建OTA服务器、发�
 ##特点
 1.无需任何数据库，单纯文件存储；  
 2.动态manifest技术，好处参见第4条；  
-3.优雅的web app安装界面，让你在测试、风投、其他屌丝码农面前辈儿有面子；完美兼容iPhone5；  
+3.优雅的web app安装界面，让你在测试、风投、其他屌丝码农面前辈儿有面子；兼容iPhone5, iOS7.1, 安卓；  
 4.可以无痛服务器迁移。只要把php-tot复制粘贴到另一个服务器就好，数据毫发无伤。
 
 #如何使用?
