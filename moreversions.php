@@ -124,7 +124,7 @@ function openPage(location)
 				}
 				//ipa详情页
 				$detailURL =
-				 "ipadetail.php?identifier=" . $value["BundleIdentifier"] . 
+				 "ipadetail.php?identifier=" . $identifier . 
 				 "&betaversion=" . $value["BetaVersion"] .
 				 "&backuri=" . "moreversions.php?identifier=" . $identifier;
 

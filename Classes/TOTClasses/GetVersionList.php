@@ -71,28 +71,26 @@
 		{
 			$maxBetaVersionInfoArray["HasMoreBetaVersion"] = false;
 		}
+		$maxBetaVersionInfoArray["Identifier"] = $identifier;
 		return $maxBetaVersionInfoArray;
 	}
 
 	//全部identifier的最后一次发布版本列表
 	function allList()
 	{
-		//枚举Documents下面所有文件夹
 		$documentPath = "Documents/";
+		$appsInfoPath = $documentPath . "apps.plist";
 		$lastVersionArray = array();
-		if (file_exists($documentPath))
+		if (file_exists($appsInfoPath))
 		{
-			if ($handle = opendir($documentPath))
+			$identifiers = ArrayFromXMLPath($appsInfoPath);
+			foreach ( $identifiers as $identifier ) 
 			{
-				while (false !== ($file = readdir($handle)))
+				if ($identifier !== "." && $identifier !== ".." && is_dir($documentPath . $identifier))//如果$file是文件夹
 				{
-					if ($file !== "." && $file !== ".." && is_dir($documentPath . $file))//如果$file是文件夹
-					{
-						$lastVersionInfo = lastVersionInfoForIdentifier($file);
-						$lastVersionArray[] = $lastVersionInfo;
-					}
+					$lastVersionInfo = lastVersionInfoForIdentifier($identifier);
+					$lastVersionArray[] = $lastVersionInfo;
 				}
-				closedir($handle);
 			}
 		}
 

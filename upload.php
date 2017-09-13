@@ -125,13 +125,13 @@
 		return $appPath;
 	}
 
-//如果bundleIdentifer对应的文件夹在Documents中不存在
+//如果identifer对应的文件夹在Documents中不存在
 //或文件夹中不含AppInfo.plist
 //或AppInfo.plst中数据不正确
 //则删除重建
-	function CreateDirForBundleIdentifier($bundleIdentifier)
+	function CreateDirForIdentifier($identifier)
 	{
-		$pathForIdentifier = "Documents/" . $bundleIdentifier . "/";
+		$pathForIdentifier = "Documents/" . $identifier . "/";
 		if (!file_exists($pathForIdentifier))
 		{
 			CreateDir($pathForIdentifier);
@@ -159,7 +159,7 @@
 	}
 
 	function moveTempIpaToIdentifierDir(
-		$bundleIdentifier, /*bundle identifier of app */
+		$identifier, /*identifier of app */
 		$ipaPath, /*path of uploaded ipa file */
 		$ipaFileName, /*file name of uploaded ipa file */
 		$appPath, /*unziped dir of "*.app/"*/
@@ -168,13 +168,13 @@
 		)
 	{
 		//在"Documents/$bundleIdentifier"下新建文件夹$dir,文件夹名为内测版本号
-		$identifierXMLPath = "Documents/". $bundleIdentifier . "/AppInfo.plist";
+		$identifierXMLPath = "Documents/". $identifier . "/AppInfo.plist";
 		$identifierInfoArray = ArrayFromXMLPath($identifierXMLPath);
 		$betaVersion = $identifierInfoArray['LastVersion'];
 		$betaVersion++;
 		$identifierInfoArray['LastVersion'] = $betaVersion;
 		SaveArrayAsXMLToPath($identifierInfoArray, $identifierXMLPath);
-		$dir = "Documents/" . $bundleIdentifier . "/" . $betaVersion . "/";
+		$dir = "Documents/" . $identifier . "/" . $betaVersion . "/";
 		CreateDir($dir);
 
 		//将ipaPath的文件移动进$dir
@@ -198,14 +198,14 @@
 		//在$dir中创建VersionInfo.plist
 		//储存如下信息
 		//Title -- $infoArray["BundleDisplayName"]
-		//Bundle Identifier -- $bundleIdentifier
+		//Bundle Identifier -- $infoArray["BundleIdentifier"]
 		//Version -- $infoArray["Version"]
 		//BetaVersion -- $betaVersion
 		//ReleaseDate -- $now
 		//ChangeLog -- $changeLog
 		$versionInfoArray = array(
 			'Title' => $infoArray["BundleDisplayName"],
-			'BundleIdentifier' => $bundleIdentifier,
+			'BundleIdentifier' => $infoArray["BundleIdentifier"],
 			'Version' => $infoArray["Version"],
 			'BetaVersion' => $betaVersion,
 			'ReleaseDate' => $now,
@@ -256,6 +256,8 @@
 
 	function main()
 	{
+		$identifier = $_POST['app'];
+
 		if (!$_FILES)//$_FILES中没有值，上传失败
 		{
 			echo "Upload failed <br/>";
@@ -282,6 +284,18 @@
 		//再建个Temp文件夹用于暂时保存上传的ipa和解压ipa
 		CreateDir("Documents");
 		CreateDir("Temp");
+
+		$appsInfoPath = "Documents/apps.plist";
+		$identifiers = array();
+		if (file_exists($appsInfoPath))
+		{
+			$identifiers = ArrayFromXMLPath($appsInfoPath);
+		}
+
+		if (!in_array($identifier, $identifiers)) {
+    		echo "error: app not exits.";
+    		return;
+		}
 
 		//将临时ipa文件从php临时文件夹移动到相对路径下的Temp文件夹
 		$ipaFileName = moveTempFileToTempDir($_FILES["file"]);
@@ -312,13 +326,13 @@
 		}
 
 		//以bundle identifier为名称在Documents下建个文件夹
-		CreateDirForBundleIdentifier($infoArray["BundleIdentifier"]);
+		CreateDirForIdentifier($identifier);
 
 		//将ipa移动进刚刚创建的文件夹。
 		//此方法这么多参数当然不会只移动ipa了，同时移动的还有iTunesArtwork
 		//顺便将此次提交的ipa的我们感兴趣的信息存成XML放到刚创建的文件夹
 		moveTempIpaToIdentifierDir(
-			$infoArray["BundleIdentifier"], //bundle identifier
+			$identifier, //bundle identifier
 			$ipaPath, //Temp文件夹中的ipa的路径
 			$ipaFileName, //上传的文件名
 			$appPath, //解压好的"xxx.app/"的路径，将从此路径读取iTunesArtwork

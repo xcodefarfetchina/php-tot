@@ -123,7 +123,7 @@ function backToPage(location)
 			date_default_timezone_set('PRC');
 			$dateString = date('F d, Y', $value['ReleaseDate']);
 			//下载地址
-			$manifestURL = $serverRootURL . "getmanifest.php?" . $value["BundleIdentifier"] . "@" . $value["BetaVersion"];
+			$manifestURL = $serverRootURL . "getmanifest.php?" . $identifier . "@" . $value["BetaVersion"];
 			//Icon
 			$imagePath = $value['ImagePath'];
 			if (!$imagePath || $imagePath === "")

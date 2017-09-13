@@ -77,7 +77,7 @@ function openPage(location)
 			}
 			//ipa详情页
 			$detailURL =
-			 "ipadetail.php?identifier=" . $value["BundleIdentifier"] . 
+			 "ipadetail.php?identifier=" . $value["Identifier"] . 
 			 "&betaversion=" . $value["BetaVersion"] .
 			 "&backuri=" . "index.php";
 
@@ -97,7 +97,7 @@ function openPage(location)
 			echo "</div>";
 			if ($value["HasMoreBetaVersion"] === true)
 			{
-				$moreVersionURL = "moreversions.php?identifier=" . $value["BundleIdentifier"];
+				$moreVersionURL = "moreversions.php?identifier=" . $value["Identifier"];
 				echo "<div class=\"moreButton\" onclick=\"openPage('$moreVersionURL')\">";
 					echo "<img width = 65px; height=24px; src=\"Images/MoreButton.png\"/>";
 				echo "</div>";
