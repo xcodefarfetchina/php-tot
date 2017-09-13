@@ -71,7 +71,6 @@
 		{
 			$maxBetaVersionInfoArray["HasMoreBetaVersion"] = false;
 		}
-		$maxBetaVersionInfoArray["Identifier"] = $identifier;
 		return $maxBetaVersionInfoArray;
 	}
 
@@ -83,12 +82,15 @@
 		$lastVersionArray = array();
 		if (file_exists($appsInfoPath))
 		{
-			$identifiers = ArrayFromXMLPath($appsInfoPath);
-			foreach ( $identifiers as $identifier ) 
+			$apps = ArrayFromXMLPath($appsInfoPath);
+			foreach ( $apps as $item ) 
 			{
+				$identifier = $item["Identifier"];
 				if ($identifier !== "." && $identifier !== ".." && is_dir($documentPath . $identifier))//如果$file是文件夹
 				{
 					$lastVersionInfo = lastVersionInfoForIdentifier($identifier);
+					$lastVersionInfo["Identifier"] = $identifier;
+					$lastVersionInfo["ProjectTitle"] = $item["Title"];
 					$lastVersionArray[] = $lastVersionInfo;
 				}
 			}

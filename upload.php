@@ -289,7 +289,8 @@
 		$identifiers = array();
 		if (file_exists($appsInfoPath))
 		{
-			$identifiers = ArrayFromXMLPath($appsInfoPath);
+			$apps = ArrayFromXMLPath($appsInfoPath);
+			$identifiers = array_column($apps, 'Identifier');
 		}
 
 		if (!in_array($identifier, $identifiers)) {

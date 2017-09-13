@@ -61,7 +61,7 @@ function openPage(location)
 		{
 			//从数组中读取所需信息
 			//标题
-			$title = $value['Title'];
+			$title = $value['ProjectTitle'];
 			//版本号
 			$version = $value['Version'];
 			//内测版本号
