@@ -68,7 +68,7 @@ function openPage(location)
 			$betaVersion = $value['BetaVersion'];
 			//发布日期
 			date_default_timezone_set('PRC');
-			$dateString = date('F d, Y', $value['ReleaseDate']);
+			$dateString = date(DATE_RFC2822, $value['ReleaseDate']);
 			//Icon
 			$imagePath = $value['ImagePath'];
 			if (!$imagePath || $imagePath === "")

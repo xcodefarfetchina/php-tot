@@ -121,7 +121,7 @@ function backToPage(location)
 			$betaVersion = $value['BetaVersion'];
 			//发布日期
 			date_default_timezone_set('PRC');
-			$dateString = date('F d, Y', $value['ReleaseDate']);
+			$dateString = date(DATE_RFC2822, $value['ReleaseDate']);
 			//下载地址
 			$manifestURL = $serverRootURL . "getmanifest.php?" . $identifier . "@" . $value["BetaVersion"];
 			//Icon
@@ -196,28 +196,6 @@ function backToPage(location)
 	echo $bodyHTMLString;
 	echo $errorHTMLString;
 ?>
-
-<!-- 以下是Footer -->
-
-<div style="height:44px;"> 
-</div>
-<div style="height:33px;">
-	<a href="http://github.com/openfibers/php-tot">
-		<h1 class="downloadLabel">Download TOT Server</h1>
-	</a>
-</div>
-<div style="height:33px;"> 
-	<a href="mailto:openfibers@gmail.com">
-		<div>
-		<h1 class="contractMeLabel">Contact Author</h1>
-		</div>
-	</a>
-</div>
-
-<h1>Powered by PHP-TOT</h1>
-<h1>Copyright (c) 2012, Open Fibers</h1>
-<h1 style="height:33px">All rights reserved.</h1>
-
 
 </body>
 </html>
