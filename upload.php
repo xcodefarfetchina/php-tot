@@ -180,14 +180,13 @@
 		//将ipaPath的文件移动进$dir
 		MoveFile($ipaPath, $dir . $ipaFileName);
 
-		//将$appPath中或Temp中的iTunesArtwork移动进$dir
-		if (file_exists($appPath . "iTunesArtwork"))//对于开发者编译的ipa,iTunesArtwork在$appPath中
-		{
-			MoveFile($appPath . "iTunesArtwork", $dir . "iTunesArtwork.png");
-		}
-		else if (file_exists("Temp/iTunesArtwork"))//但是对于AppStore下载的ipa,iTunesArtwork在Temp中
-		{
-			MoveFile("Temp/iTunesArtwork",  $dir . "iTunesArtwork.png");
+		$appIconArray = array("AppIcon60x60@2x.png","AppIcon76x76@2x~ipad.png");
+		foreach ($appIconArray as $key => $value) {
+			if (file_exists($appPath . $value))
+			{
+				MoveFile($appPath . $value, $dir . "iTunesArtwork.png");
+				break;
+			}
 		}
 
 		date_default_timezone_set('PRC'); //中华人民共和国时间
