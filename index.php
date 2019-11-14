@@ -39,6 +39,7 @@ function openPage(location)
 
 <!-- 顶部NavigationBar -->
 <div class="navigationBar">
+    <div style="position:absolute; top:11px; right:4px"><a href="Help/help.html" style="color: black;">Help</a></div>
 	<h1 class="headerTitle">Install Apps</h1>
 </div>
 
