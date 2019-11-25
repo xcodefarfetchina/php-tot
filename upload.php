@@ -346,5 +346,5 @@
 		DeleteDir("Temp");
 	}
 	main();
-	cleanup(20);
+	cleanup($identifier, 20);
 ?>

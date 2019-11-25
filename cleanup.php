@@ -28,7 +28,6 @@
 						if (file_exists($versionInfoPath))
 						{
 							$versionInfoArray = ArrayFromXMLPath($versionInfoPath);
-							$versionInfoArray["Identifier"] = $identifier;	
 							$maxBetaVersionInfoArray[] = $versionInfoArray;
 						}
 					}
@@ -39,43 +38,20 @@
 		return $maxBetaVersionInfoArray;
 	}
 
-	function allApps()
+	function cleanup($identifier, $max)
 	{
-		$documentPath = "Documents/";
-		$appsInfoPath = $documentPath . "apps.plist";
-		$appInfos = array();
-		if (file_exists($appsInfoPath))
-		{
-			$apps = ArrayFromXMLPath($appsInfoPath);
-			foreach ( $apps as $item ) 
-			{
-				$identifier = $item["Identifier"];
-				if ($identifier !== "." && $identifier !== ".." && is_dir($documentPath . $identifier))//如果$file是文件夹
-				{
-					$appInfos[] = allVersionInfoForIdentifier($identifier);
-				}
-			}
-		}
-		return $appInfos;
-	}
-
-	function cleanup($max)
-	{
+		$versions = allVersionInfoForIdentifier($identifier);
 		$sortHelper = new SortHelper;
-		foreach (allApps() as $versions)
+		$sorted = $sortHelper->ReversedSortArrayWithKey($versions, 'ReleaseDate');
+		$index = 0;
+		foreach ($sorted as $version)
 		{
-			$sorted = $sortHelper->ReversedSortArrayWithKey($versions, 'ReleaseDate');
-			$index = 0;
-			foreach ($sorted as $version)
+			if ($index >= $max) 
 			{
-				if ($index >= $max) 
-				{
-					$identifier = $version["Identifier"];
-					$dir = "Documents/" . $identifier . "/" . $version["BetaVersion"];
-					DeleteDir($dir);
-				}
-				$index++;
+				$dir = "Documents/" . $identifier . "/" . $version["BetaVersion"];
+				DeleteDir($dir);
 			}
+			$index++;
 		}
 	}
 ?>
