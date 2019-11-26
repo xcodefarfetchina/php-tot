@@ -344,7 +344,7 @@
 
 		//Remove temp file
 		DeleteDir("Temp");
+		cleanup($identifier, 20);
 	}
 	main();
-	cleanup($identifier, 20);
 ?>
