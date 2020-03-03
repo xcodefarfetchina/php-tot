@@ -227,12 +227,14 @@
 		$returnArray = null;
 		if (file_exists($apkPath))
 		{
-			$apk = new ApkParser\Parser( $apkPath );
-			$manifest = $apk->getManifest();
+			exec('apktool d -o apk.out ' . $apkPath);
+			$apk = simplexml_load_file("apk.out/AndroidManifest.xml") or die("Error: Cannot create object");
+			$android = $apk->attributes('http://schemas.android.com/apk/res/android');
 
-			$versionString     = $manifest->getVersionName();
-			$bundleIdentifier  = $manifest->getPackageName();
-			$minOSVersion      = $manifest->getMinSdkLevel();
+			$versionString 	   = $android->versionName . '(' . $android->versionCode . ')';
+			$bundleIdentifier  = (string)$apk->attributes()->package;
+
+			DeleteDir('apk.out');
 
 			$ids = explode( ".", $bundleIdentifier );
 			$idsCount = count( $ids );
@@ -241,17 +243,11 @@
 			else
 				$bundleDisplayName = ucfirst( $ids[$idsCount - 1] );
 
-			// print("<pre>");
-			// var_dump($plistArray);
-			// print("</pre>");
-
 			$returnArray = array();
 
 			$returnArray['Version'] = $versionString;
 			$returnArray['BundleIdentifier'] = $bundleIdentifier;
 			$returnArray['BundleDisplayName'] = $bundleDisplayName;
-			$returnArray['MinOSVersion'] = $minOSVersion;
-
 		}
 		return $returnArray;
 	}
