@@ -55,6 +55,7 @@
 			header( 'Content-Type: application/vnd.android.package-archive' );
 			header( "Content-Disposition: attachment; filename=$downloadFileName" );
 			readfile($apkPath);
+			exit();
 		}
 		else
 		{
