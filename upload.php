@@ -227,11 +227,10 @@
 			exec('apktool d -o apk.out -s -f ' . $apkPath);
 			$apktool = yaml_parse_file("apk.out/apktool.yml") or die("Error: load apktool.yml failed.");
 			$manifest = simplexml_load_file("apk.out/AndroidManifest.xml") or die("Error: load AndroidManifest.xml failed.");
-			$android = $manifest->attributes('http://schemas.android.com/apk/res/android');
 
 			$version = $apktool['versionInfo'];
 			$versionString = $version['versionName'] . '(' . $version['versionCode'] . ')';
-
+			$bundleIdentifier  = (string)$manifest->attributes()->package;
 			DeleteDir('apk.out');
 
 			$ids = explode( ".", $bundleIdentifier );
