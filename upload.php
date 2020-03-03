@@ -234,7 +234,8 @@
 			$versionString 	   = $android->versionName . '(' . $android->versionCode . ')';
 			$bundleIdentifier  = (string)$apk->attributes()->package;
 
-			DeleteDir('apk.out');
+			echo $versionString;
+			//DeleteDir('apk.out');
 
 			$ids = explode( ".", $bundleIdentifier );
 			$idsCount = count( $ids );
