@@ -10,9 +10,6 @@
 
 	error_reporting( E_ALL );
 	ini_set( 'display_errors', 'on' );
-
-	require __DIR__ . '/vendor/autoload.php';
-	use ApkParser;
 	
 	require_once 'Classes/TOTClasses/unzip.php';
 	require_once 'Classes/TOTClasses/HandleInfoPlistInPayload.php';
