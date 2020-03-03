@@ -224,15 +224,15 @@
 		$returnArray = null;
 		if (file_exists($apkPath))
 		{
-			exec('apktool d -o apk.out ' . $apkPath);
-			$apk = simplexml_load_file("apk.out/AndroidManifest.xml") or die("Error: Cannot create object");
-			$android = $apk->attributes('http://schemas.android.com/apk/res/android');
+			exec('apktool d -o apk.out -s -f ' . $apkPath);
+			$apktool = yaml_parse_file("apk.out/apktool.yml") or die("Error: load apktool.yml failed.");
+			$manifest = simplexml_load_file("apk.out/AndroidManifest.xml") or die("Error: load AndroidManifest.xml failed.");
+			$android = $manifest->attributes('http://schemas.android.com/apk/res/android');
 
-			$versionString 	   = $android->versionName . '(' . $android->versionCode . ')';
-			$bundleIdentifier  = (string)$apk->attributes()->package;
+			$version = $apktool['versionInfo'];
+			$versionString = $version['versionName'] . '(' . $version['versionCode'] . ')';
 
-			echo $versionString;
-			//DeleteDir('apk.out');
+			DeleteDir('apk.out');
 
 			$ids = explode( ".", $bundleIdentifier );
 			$idsCount = count( $ids );

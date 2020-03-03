@@ -1,4 +1,5 @@
 Documents/
 Temp/
 vendor/
+apk.out/
 *.DS_Store
