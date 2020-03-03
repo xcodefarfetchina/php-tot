@@ -51,17 +51,10 @@
 		$apkPath = $dirPath . "BetaTest.apk";
 		if( file_exists( $apkPath ) )
 		{
-			$handle = fopen( $apkPath, "rb" );
-			if( $handle )
-			{
-				$contents = fread( $handle, filesize( $apkPath ) );
-				fclose( $handle );
-			}
-
 			$downloadFileName = "BetaTest.apk";
 			header( 'Content-Type: application/vnd.android.package-archive' );
 			header( "Content-Disposition: attachment; filename=$downloadFileName" );
-			echo $contents;
+			readfile($apkPath);
 		}
 		else
 		{
