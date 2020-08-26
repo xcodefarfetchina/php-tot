@@ -62,11 +62,7 @@
 		$apkPath = $dirPath . "BetaTest.apk";
 		if( file_exists( $apkPath ) )
 		{
-			$downloadFileName = "BetaTest". $versionInfoArray["Version"]. ".apk";
-			header( 'Content-Type: application/vnd.android.package-archive' );
-			header( "Content-Disposition: attachment; filename=$downloadFileName" );
-			readfile($apkPath);
-			exit();
+			http_redirect(getRootURL() . $apkPath);
 		}
 		else
 		{
