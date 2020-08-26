@@ -62,7 +62,8 @@
 		$apkPath = $dirPath . "BetaTest.apk";
 		if( file_exists( $apkPath ) )
 		{
-			http_redirect(getRootURL() . $apkPath);
+			header("Location: " . getRootURL() . $apkPath);
+			exit();
 		}
 		else
 		{
